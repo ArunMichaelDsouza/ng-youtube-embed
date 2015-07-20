@@ -1,3 +1,8 @@
+/*
+    ng-youtube-embed v0.1.0
+    Copyright (c) 2015 Arun Michael Dsouza (amdsouza92@gmail.com)
+    Licence: MIT
+*/
 "use strict";
 angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
     return {
