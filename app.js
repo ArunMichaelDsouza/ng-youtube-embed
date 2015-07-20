@@ -30,19 +30,22 @@ var ngYoutubeEmbed = angular.module('ngYoutubeEmbed', [])
             controller: ['$scope', '$sce', function($scope, $sce) {
                 var link = $scope.url;
 
-                var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-                var q = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                function fetchId(link) {
+                    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+                    var q = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                    var match = link.match(q);
+                     var id = link.match(p);
+                    if (id != null) {
+                        var ytId = id[1];
+                        return ytId;
+                    }
+                }
 
                 $scope.playlistArray = [];
                 if ($scope.playlist != undefined) {
                     var playlistArray = $scope.playlist.split(',');
                     for (var i = 0; i < playlistArray.length; i++) {
-                        var match = playlistArray[i].match(q);
-                        var id = playlistArray[i].match(p);
-                        if (id != null) {
-                            var ytId = id[1];
-                            $scope.playlistArray.push(ytId);
-                        }
+                        $scope.playlistArray.push(fetchId(playlistArray[i]));
                     }
                 }
 
@@ -64,13 +67,9 @@ var ngYoutubeEmbed = angular.module('ngYoutubeEmbed', [])
                 start = $scope.start;
                 theme = $scope.theme;
 
-                var match = link.match(q);
-                var id = link.match(p);
-                if (id != null) {
-                    var ytId = id[1];
-                    var iframe = '<iframe width="500px" height="350px" src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                    $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
-                }
+                var ytId = fetchId(link);
+                var iframe = '<iframe width="500px" height="350px" src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
             }]
         }
     }]);
