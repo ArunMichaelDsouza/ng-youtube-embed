@@ -112,7 +112,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Enable remaining parameters
 * Run proper js tests
 * Add bower support
-* List in ngmodules.org
+* ~~List in ngmodules~~
 
 
 
