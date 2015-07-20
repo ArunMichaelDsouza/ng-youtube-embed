@@ -62,11 +62,11 @@ angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
             $scope.ccloadpolicy == 'true' ? ccloadpolicy = 1 : ccloadpolicy = 0; // CCLoadPolicy parameter
             $scope.color == 'white' ? color = 'white' : color = 'red'; // Color parameter
             $scope.controls == 'false' ? controls = 0 : controls = 1; // Controls parameter
-            $scope.disablekb == 'true' ? disablekb = 1 : disablekb = 0; // DisableKb parameter
+            $scope.disablekb == 'false' ? disablekb = 0 : disablekb = 1; // DisableKb parameter
             end = $scope.end; // End parameter
             $scope.fs == 'false' ? fs = 0 : fs = 1; // Fullscreen parameter
             hl = $scope.hl; // Inteface language parameter
-            $scope.ivloadpolicy == 'true' ? ivloadpolicy = 1 : ivloadpolicy = 0; // IvLoadPolicy parameter
+            $scope.ivloadpolicy == 'false' ? ivloadpolicy = 0 : ivloadpolicy = 1; // IvLoadPolicy parameter
             playlist = $scope.playlistArray; // Playlist parameter
             $scope.playsinline == 'true' ? playsinline = 1 : playsinline = 0; // Playsinline parameter
             $scope.rel == 'false' ? rel = 0 : rel = 1; // Rel parameter
