@@ -14,7 +14,16 @@ Add ``ngYoutubeEmbed`` as a dependency in your app's main module.
 
 Include the directive in your HTML file with any of the available youtube player parameters.
 
+Include the ``url`` param and pass in the scope variable which contains the youtube video link which you want to render.
+
 Example - 
+```javascript
+var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
+
+myApp.controller('myCtrl', ['$scope', function($scope) {
+    $scope.link = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
+}]);
+```
 ```html
 <ng-youtube-embed 
 	url="link" 
@@ -31,6 +40,14 @@ Where ``link`` is the scope variable containing the youtube video link.
 ng-youtube-embed supports most of the youtube player parameters available. For a full list check this [link](https://developers.google.com/youtube/player_parameters).
 
 #### Supported parameters
+
+#### ``width {number}``
+This parameter specifies the width of the youtube embed frame.
+Supported value is a positive integer in ``px`` or ``%``.
+
+#### ``height {number}``
+This parameter specifies the height of the youtube embed frame.
+Supported value is a positive integer in ``px`` or ``%``.
 
 #### ``autohide {boolean}``
 This parameter indicates whether the video controls will automatically hide after a video begins playing. 
@@ -57,7 +74,7 @@ Setting the parameter's value to ``false`` causes the player to respond to keybo
 Supported values are : ``true`` and ``false``.
 
 #### ``end {number}``
-This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. 
+This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
 
 #### ``fs {boolean}``
@@ -88,7 +105,7 @@ Setting the parameter's value to ``false`` causes the player to not display info
 Supported values are : ``true`` and ``false``.
 
 #### ``start {number}``
-This parameter causes the player to begin playing the video at the given number of seconds from the start of the video.
+This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
 
 #### ``theme {string}``
