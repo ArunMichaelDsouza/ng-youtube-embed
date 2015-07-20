@@ -6,7 +6,7 @@ AngularJS Module to embed Youtube videos
 
 ## Installation
 
-Simply [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/archive/v0.1.0.zip) the latest version and include ``ng-youtube-embed.min.js`` to your project.
+Simply [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases) the latest version and include ``ng-youtube-embed.min.js`` to your project.
 
 Add ``ngYoutubeEmbed`` as a dependency in your app's main module.
 

@@ -1,5 +1,5 @@
 /*
-    ng-youtube-embed v0.1.0
+    ng-youtube-embed v0.2.2
     Copyright (c) 2015 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
     Demo on CodePen - http://codepen.io/amdsouza92/pen/yNxyJV
