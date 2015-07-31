@@ -1,0 +1,24 @@
+{
+  "name": "ng-youtube-embed",
+  "main": "ng-youtube-embed.js",
+  "version": "0.2.2",
+  "homepage": "https://github.com/ArunMichaelDsouza/ng-youtube-embed",
+  "authors": [
+    "Arun Michael Dsouza <amdsouza92@gmail.com>"
+  ],
+  "description": "AngularJS Module to embed Youtube videos. Superlight and easy to use! Support for Youtube player parameters. No 3rd party JS dependencies.",
+  "keywords": [
+    "youtube",
+    "video",
+    "embed",
+    "iframe"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
