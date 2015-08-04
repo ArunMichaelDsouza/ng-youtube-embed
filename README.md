@@ -43,7 +43,7 @@ Where ``link`` is the scope variable containing the youtube video link.
 
 ## Options
 
-ng-youtube-embed supports most of the youtube player parameters available. For a full list check this [link](https://developers.google.com/youtube/player_parameters).
+ng-youtube-embed supports most of the youtube player parameters available. For a full list of original parameters check this [link](https://developers.google.com/youtube/player_parameters).
 
 #### Supported parameters
 
