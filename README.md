@@ -6,10 +6,18 @@ AngularJS Module to embed Youtube videos
 
 ## Installation
 
+#### via bower
+
 You can install the package using bower. Make sure you have bower installed, then run : 
 
 ```html
 bower install ng-youtube-embed
+```
+
+#### via npm
+
+```html
+npm install ng-youtube-embed
 ```
 
 Or, [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases) the latest version and include ``ng-youtube-embed.min.js`` to your project.
