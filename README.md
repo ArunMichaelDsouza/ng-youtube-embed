@@ -1,4 +1,4 @@
-# ng-youtube-embed
+# ng-youtube-embed [v0.2.2]
 AngularJS Module to embed Youtube videos
 > Superlight (less than 2KB) and easy to use! Support for Youtube player parameters. No 3rd party JS dependencies. 
 
