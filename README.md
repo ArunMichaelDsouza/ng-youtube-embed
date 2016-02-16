@@ -30,7 +30,7 @@ npm install ng-youtube-embed
 
 Or, [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases) the latest version and include ``ng-youtube-embed.min.js`` to your project.
 
-Add ``ngYoutubeEmbed`` as a dependency in your app's main module.
+Add ``ngYoutubeEmbed`` as a dependency in your angular app module.
 
 ## Usage
 
