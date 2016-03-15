@@ -1,4 +1,4 @@
-# ng-youtube-embed [v0.2.2]
+# ng-youtube-embed [v0.2.3]
 "Just-add-link" AngularJS Module to embed Youtube videos. Forget about those pesky video IDs.
 > Superlight (less than 2KB) and easy to use! Support for Youtube player parameters. No 3rd party JS dependencies. 
 
@@ -11,7 +11,7 @@
 Use ng-youtube-embed directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/angular.youtube-embed/0.2.2/ng-youtube-embed.min.js
+https://cdn.jsdelivr.net/angular.youtube-embed/0.2.3/ng-youtube-embed.min.js
 ```
 
 #### via bower
