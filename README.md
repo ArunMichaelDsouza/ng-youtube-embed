@@ -1,4 +1,5 @@
-# ng-youtube-embed [v0.2.3]
+# ng-youtube-embed [![npm version](https://badge.fury.io/js/ng-youtube-embed.svg)](https://badge.fury.io/js/ng-youtube-embed) [![NPM Downloads](https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square)](https://www.npmjs.com/package/ng-youtube-embed) [![Latest Stable Version](https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square)](http://bower.io/search/?q=ng-youtube-embed)
+
 "Just-add-link" AngularJS Module to embed Youtube videos. Forget about those pesky video IDs.
 > Superlight (less than 2KB) and easy to use! Support for Youtube player parameters. No 3rd party JS dependencies. 
 
