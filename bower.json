@@ -1,7 +1,7 @@
 {
   "name": "ng-youtube-embed",
-  "main": "build/ng-youtube-embed.min.js",
-  "version": "0.2.3",
+  "main": "src/ng-youtube-embed.js",
+  "version": "0.2.4",
   "homepage": "https://github.com/ArunMichaelDsouza/ng-youtube-embed",
   "authors": [
     "Arun Michael Dsouza <amdsouza92@gmail.com>"
