@@ -91,12 +91,17 @@ angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
                     height = '350px';
                 }
 
-                // Saving id for youtube video link
-                var ytId = fetchId(link);
-                // Creating iframe for video playback
-                var iframe = '<iframe width='+width+' height='+height+' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                // Sanitizing and rendering iframe
-                $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
+                // Update iframe when url attribute changes
+                $scope.$watch('url', function(newVal){
+                    if (newVal) {
+                        // Saving id for youtube video link
+                        var ytId = fetchId(newVal);
+                        // Creating iframe for video playback
+                        var iframe = '<iframe width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                        // Sanitizing and rendering iframe
+                        $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
+                    }
+                });
             }
         }]
     }
