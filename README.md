@@ -14,7 +14,7 @@
 Use ng-youtube-embed directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/angular.youtube-embed/0.2.4/ng-youtube-embed.min.js
+https://cdn.jsdelivr.net/angular.youtube-embed/0.3.1/ng-youtube-embed.min.js
 ```
 
 #### via bower
