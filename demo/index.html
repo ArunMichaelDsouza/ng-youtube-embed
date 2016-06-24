@@ -8,6 +8,15 @@
     <meta charset="UTF-8"/>
 </head>
 <body ng-controller="myCtrl">
+    <form name="videoForm">
+        <div>
+            <label for="link">Change video:</label>
+            <input type="text" id="link" name="link" placeholder="Url" 
+                   ng-model="link" ng-pattern="/^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/">
+        </div>
+        <span ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
+    </form>
+    <br>
     <ng-youtube-embed 
         url="link" 
         width="400px"
