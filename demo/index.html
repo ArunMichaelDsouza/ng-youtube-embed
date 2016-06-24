@@ -83,7 +83,10 @@
                     <label class="text-center">
                         Update video URL
                     </label>
-                    <button class="btn btn-primary" ng-click="updateUrl()">Update URL</button>
+                    <form name="videoForm">
+                        <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="link3" ng-pattern="/^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/">
+                        <span ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
+                    </form>
                 </div>
             </div>
         </div>
