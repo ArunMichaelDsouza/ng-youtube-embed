@@ -31,7 +31,8 @@ angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
             height: '@height'
         },
         controller: ['$scope', '$sce', function($scope, $sce) {
-            // Saving the video link in directive's scope variable
+
+            // Saving the video link 
             var link = $scope.url;
 
             if (link != undefined) {
@@ -76,27 +77,27 @@ angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
                 $scope.showinfo == 'false' ? showinfo = 0 : showinfo = 1; // ShowInfo parameter
                 start = $scope.start; // Start parameter
                 theme = $scope.theme; // Theme parameter
-                /* Please use this link - https://developers.google.com/youtube/player_parameters 
-                to view all available youtube player parameters */
-                if($scope.width != undefined) {
-                    width = $scope.width;
-                }
-                else {
-                    width = '500px';
-                }
-                if($scope.height != undefined) {
-                    height = $scope.height;
-                }
-                else {
-                    height = '350px';
-                }
 
-                // Saving id for youtube video link
-                var ytId = fetchId(link);
-                // Creating iframe for video playback
-                var iframe = '<iframe width='+width+' height='+height+' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                // Sanitizing and rendering iframe
-                $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
+                // Please use this link - https://developers.google.com/youtube/player_parameters to view all available youtube player parameters
+
+                // Setting default width and height if not provided
+                $scope.width != undefined ? width = $scope.width : width = '500px';
+                $scope.height != undefined ? height = $scope.height : height = '350px';
+
+                // Attaching a watch to the url scope variable
+                $scope.$watch('url', function(newVal) {
+                    if (newVal) {
+
+                        // Saving id for youtube video link
+                        var ytId = fetchId(newVal);
+
+                        // Creating iframe for video playback
+                        var iframe = '<iframe width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                        
+                        // Sanitizing and rendering iframe
+                        $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
+                    }
+                });
             }
         }]
     }
