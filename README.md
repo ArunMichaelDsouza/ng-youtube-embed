@@ -145,8 +145,8 @@ Supported values are : ``dark`` and ``light``.
 
 ## Contributors
 
-- [Arun Michael Dsouza](https://github.com/ArunMichaelDsouza)
 - [Fabián Horacio Veliz](https://github.com/fabianVeliz)
+- [Gustavo Salgado](https://github.com/gsalgadotoledo)
 
 <br/>
 
