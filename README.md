@@ -5,6 +5,8 @@
 
 ### [Demo on CodePen](http://codepen.io/amdsouza92/pen/yNxyJV)
 
+<br/>
+
 ## Installation
 
 #### CDN 
@@ -33,6 +35,8 @@ Or, [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases) t
 
 Add ``ngYoutubeEmbed`` as a dependency in your angular app module.
 
+<br/>
+
 ## Usage
 
 Include the directive in your HTML file with any of the available youtube player parameters.
@@ -57,6 +61,8 @@ myApp.controller('myCtrl', ['$scope', function($scope) {
 </ng-youtube-embed>
 ```
 Where ``link`` is the scope variable containing the youtube video link.
+
+<br/>
 
 ## Options
 
@@ -134,6 +140,15 @@ Supported value is a positive integer.
 #### ``theme {string}``
 This parameter indicates whether the embedded player will display player controls (like a play button or volume control) within a dark or light control bar. The default value is ``dark``.
 Supported values are : ``dark`` and ``light``.
+
+<br/>
+
+## Contributors
+
+- [Arun Michael Dsouza](https://github.com/ArunMichaelDsouza)
+- [Fabián Horacio Veliz](https://github.com/fabianVeliz)
+
+<br/>
 
 ## License
 
