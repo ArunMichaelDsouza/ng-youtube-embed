@@ -5,40 +5,89 @@
 -->
 <html lang="en" ng-app="myApp">
 <head>
+    <title>ng-youtube-embed Demo</title>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        h1 {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #222;
+        }
+        .wrapper {
+            margin: 30px 0;
+        }
+        label {
+            font-weight: 400;
+            font-size: 1.1em;
+            display: block;
+            padding: 10px 0;
+        }
+        .btn {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body ng-controller="myCtrl">
-    <form name="videoForm">
-        <div>
-            <label for="link">Change video:</label>
-            <input type="text" id="link" name="link" placeholder="Url" 
-                   ng-model="link" ng-pattern="/^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/">
+    <h1 class="text-center">ng-youtube-embed Demo</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <ng-youtube-embed 
+                        url="link1" 
+                        width="100%"
+                        >
+                    </ng-youtube-embed>
+                    <label class="text-center">
+                        Simple
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <ng-youtube-embed 
+                        url="link2" 
+                        width="100%"
+                        autohide="true"
+                        autoplay="false"
+                        ccloadpolicy="false" 
+                        color="white"
+                        controls="true"
+                        disablekb="false"
+                        end="4"
+                        fs="false"
+                        hl="fr"
+                        ivloadpolicy="false" 
+                        playlist="https://www.youtube.com/watch?v=RNRsvFsY9qk,https://www.youtube.com/watch?v=dulxbKkj9Wg"
+                        playsinline="false" 
+                        rel="false"
+                        showinfo="false"
+                        start="2"
+                        theme="light"
+                        >
+                    </ng-youtube-embed>
+                    <label class="text-center">
+                        Playlist with advanced options
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper" align="center">
+                    <ng-youtube-embed 
+                        url="link3" 
+                        width="100%"
+                        >
+                    </ng-youtube-embed>
+                    <label class="text-center">
+                        Update video URL
+                    </label>
+                    <button class="btn btn-primary" ng-click="updateUrl()">Update URL</button>
+                </div>
+            </div>
         </div>
-        <span ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
-    </form>
-    <br>
-    <ng-youtube-embed 
-        url="link" 
-        width="400px"
-        height="400px"
-        autohide="true"
-        autoplay="false"
-        ccloadpolicy="false" 
-        color="white"
-        controls="true"
-        disablekb="false"
-        end="4"
-        fs="false"
-        hl="fr"
-        ivloadpolicy="false" 
-        playlist="https://www.youtube.com/watch?v=dulxbKkj9Wg,https://www.youtube.com/watch?v=RNRsvFsY9qk"
-        playsinline="false" 
-        rel="false"
-        showinfo="false"
-        start="2"
-        theme="light"
-        >
-    </ng-youtube-embed>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="../build/ng-youtube-embed.min.js"></script>
     <script src="app.js"></script>

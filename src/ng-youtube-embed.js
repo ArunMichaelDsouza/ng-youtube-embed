@@ -78,14 +78,14 @@ angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
                 start = $scope.start; // Start parameter
                 theme = $scope.theme; // Theme parameter
 
-                // Please use this link - https://developers.google.com/youtube/player_parameters to view all available youtube player parameters
+                // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
 
                 // Setting default width and height if not provided
                 $scope.width != undefined ? width = $scope.width : width = '500px';
                 $scope.height != undefined ? height = $scope.height : height = '350px';
 
                 // Update iframe when url attribute changes
-                $scope.$watch('url', function(newVal){
+                $scope.$watch('url', function(newVal) {
                     if (newVal) {
                         // Saving id for youtube video link
                         var ytId = fetchId(newVal);
