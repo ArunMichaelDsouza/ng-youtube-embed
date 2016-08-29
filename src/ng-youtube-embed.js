@@ -30,7 +30,8 @@
                 start: '@start',
                 theme: '@theme',
                 width: '@width',
-                height: '@height'
+                height: '@height',
+                gaming: '@gaming'
             },
             controller: ['$scope', '$sce', function($scope, $sce) {
 
