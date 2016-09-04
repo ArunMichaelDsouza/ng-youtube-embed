@@ -38,8 +38,6 @@
                 // Saving the video link 
                 var link = $scope.url;
 
-                console.log($scope.gaming);
-
                 // Function to fetch id from youtube link
                 function fetchId(link) {
                     var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
@@ -64,7 +62,7 @@
                     }
 
                     // Declaring parameters for iframe
-                    var autoplay, autohide, ccloadpolicy, color, controls, disablekb, end, fs, hl, ivloadpolicy, playlist, playsinline, rel, showinfo, start, theme, width, height;
+                    var autoplay, autohide, ccloadpolicy, color, controls, disablekb, end, fs, hl, ivloadpolicy, playlist, playsinline, rel, showinfo, start, theme, width, height, gaming;
 
                     // Parameter flags to enable/disable youtube parameters
                     $scope.autoplay == 'true' ? autoplay = 1 : autoplay = 0; // Autoplay parameter
@@ -73,16 +71,17 @@
                     $scope.color == 'white' ? color = 'white' : color = 'red'; // Color parameter
                     $scope.controls == 'false' ? controls = 0 : controls = 1; // Controls parameter
                     $scope.disablekb == 'false' ? disablekb = 0 : disablekb = 1; // DisableKb parameter
-                    end = $scope.end; // End parameter
+                    end = $scope.end ? $scope.end : ''; // End parameter
                     $scope.fs == 'false' ? fs = 0 : fs = 1; // Fullscreen parameter
-                    hl = $scope.hl; // Inteface language parameter
+                    hl = $scope.hl ? $scope.hl : ''; // Inteface language parameter
                     $scope.ivloadpolicy == 'false' ? ivloadpolicy = 0 : ivloadpolicy = 1; // IvLoadPolicy parameter
                     playlist = $scope.playlistArray; // Playlist parameter
                     $scope.playsinline == 'true' ? playsinline = 1 : playsinline = 0; // Playsinline parameter
                     $scope.rel == 'false' ? rel = 0 : rel = 1; // Rel parameter
                     $scope.showinfo == 'false' ? showinfo = 0 : showinfo = 1; // ShowInfo parameter
-                    start = $scope.start; // Start parameter
-                    theme = $scope.theme; // Theme parameter
+                    start = $scope.start ? $scope.start : ''; // Start parameter
+                    theme = $scope.theme ? $scope.theme : ''; // Theme parameter
+                    gaming = $scope.gaming ? $scope.gaming : ''; // Gaming parameter
 
                     // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
 
@@ -93,12 +92,17 @@
                     // Update iframe when url attribute changes
                     $scope.$watch('url', function(newVal) {
                         if (newVal) {
-                            // Saving id for youtube video link
-                            var ytId = fetchId(newVal);
-                            // Creating iframe for video playback
 
+                            // Saving id for youtube video link
+                            var ytId = fetchId(newVal),
+                                iframe;
+
+                            // Creating iframe for video playback
                             if(!gaming) {
-                                var iframe = '<iframe width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                                iframe = '<iframe width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                            }
+                            else {
+                                console.log(ytId);
                             }
                             // Sanitizing and rendering iframe
                             $scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);

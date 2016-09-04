@@ -66,7 +66,6 @@
                         showinfo="false"
                         start="2"
                         theme="light"
-                        gaming="true"
                         >
                     </ng-youtube-embed>
                     <label class="text-center">
@@ -86,14 +85,14 @@
                     </label>
                     <form name="videoForm">
                         <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="link3" ng-pattern="/^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/">
-                        <span ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
+                        <span ng-cloak ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-    <script src="../build/ng-youtube-embed.min.js"></script>
+    <script src="../src/ng-youtube-embed.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
