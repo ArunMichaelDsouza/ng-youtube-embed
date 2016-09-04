@@ -143,7 +143,7 @@ Supported values are : ``dark`` and ``light``.
 
 #### ``gaming {boolean}``
 This parameter enables embedding of videos from ``https://gaming.youtube.com``.
-Supported values are : ``dark`` and ``light``.
+Supported values are : ``true`` and ``false``.
 
 <br/>
 
