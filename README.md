@@ -141,6 +141,10 @@ Supported value is a positive integer.
 This parameter indicates whether the embedded player will display player controls (like a play button or volume control) within a dark or light control bar. The default value is ``dark``.
 Supported values are : ``dark`` and ``light``.
 
+#### ``gaming {boolean}``
+This parameter enables embedding of videos from ``https://gaming.youtube.com``.
+Supported values are : ``dark`` and ``light``.
+
 <br/>
 
 ## Contributors
