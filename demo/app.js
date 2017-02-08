@@ -42,4 +42,8 @@ myApp.controller('myCtrl', ['$scope', '$window', function($scope, $window) {
 
     }
 
+    $scope.play = function() {
+    	player.playVideo();
+    };
+
 }]);
