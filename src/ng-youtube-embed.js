@@ -10,31 +10,9 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('youtube-video', {
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-  
-}
-
-function onPlayerReady() {
-  console.log("hey Im ready");
-  console.log(player);
-  //do whatever you want here. Like, player.playVideo();
-
-}
-
-function onPlayerStateChange() {
-  console.log("my state changed");
-}
-
 (function() {
     "use strict";
-    angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
+    angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', ['$sce', function($sce) {
         return {
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
@@ -62,7 +40,10 @@ function onPlayerStateChange() {
                 enablejsapi: '@enablejsapi',
                 vid: '@vid'
             },
-            controller: ['$scope', '$sce', function($scope, $sce) {
+            link: function($scope, elem, attr) {
+
+                // Remove id attribute from directive
+                elem[0].removeAttribute('id');
 
                 // Saving the video link 
                 var link = $scope.url;
@@ -123,8 +104,8 @@ function onPlayerStateChange() {
 
                     var vid = $scope.vid;
 
-                    console.log(enablejsapi);
-                    console.log(vid);
+                    // console.log(enablejsapi);
+                    // console.log(vid);
 
                     // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
 
@@ -152,7 +133,7 @@ function onPlayerStateChange() {
                         }
                     });
                 }
-            }]
+            }
         }
     }]);
 })();
