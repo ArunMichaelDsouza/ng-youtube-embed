@@ -32,7 +32,7 @@
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
             scope: {
                 url: '=',
-                autoplay: '@autoplay',
+                autoplay: '@',
                 autohide: '@autohide',
                 ccloadpolicy: '@ccloadpolicy',
                 color: '@color',
@@ -83,6 +83,8 @@
                     if (id != null) {
                         var ytId = id[1];
                         return ytId;
+                    } else {
+                        return link;
                     }
                 }
 
