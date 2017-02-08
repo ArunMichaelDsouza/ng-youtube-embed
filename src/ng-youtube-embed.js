@@ -59,7 +59,8 @@ function onPlayerStateChange() {
                 width: '@width',
                 height: '@height',
                 gaming: '@gaming',
-                enablejsapi: '@enablejsapi'
+                enablejsapi: '@enablejsapi',
+                vid: '@vid'
             },
             controller: ['$scope', '$sce', function($scope, $sce) {
 
@@ -120,7 +121,10 @@ function onPlayerStateChange() {
                     gaming = $scope.gaming ? $scope.gaming : ''; // Gaming parameter
                     enablejsapi = $scope.enablejsapi === 'true' ? 1 : 0; 
 
+                    var vid = $scope.vid;
+
                     console.log(enablejsapi);
+                    console.log(vid);
 
                     // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
 
@@ -138,7 +142,7 @@ function onPlayerStateChange() {
 
                             // Creating iframe for video playback
                             if(!gaming) {
-                                iframe = '<iframe id="youtube-video" width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi='+enablejsapi+'&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                                iframe = '<iframe id='+vid+' width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi='+enablejsapi+'&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
                             }
                             else {
                                 iframe = '<iframe width=' + width + ' height=' + height + ' src="https://gaming.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
