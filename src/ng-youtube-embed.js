@@ -5,14 +5,28 @@
     Demo on CodePen - http://codepen.io/amdsouza92/pen/yNxyJV
 */
 
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 (function() {
     "use strict";
-    angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', ['$sce', function($sce) {
+
+    var ngYoutubeEmbed = angular.module('ngYoutubeEmbed', []);
+
+    function appendJSAPI() {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
+    function isMyScriptLoaded() {
+        var url = "https://www.youtube.com/iframe_api";
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+            if (scripts[i].src == url) return true;
+        }
+        return false;
+    }
+
+    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', function($sce) {
         return {
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
@@ -42,6 +56,10 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             },
             link: function($scope, elem, attr) {
 
+                if(attr.enablejsapi === 'true' && !isMyScriptLoaded()) {
+                    appendJSAPI();
+                }
+
                 // Remove id attribute from directive
                 elem[0].removeAttribute('id');
 
@@ -54,7 +72,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
                     var q = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
 
-                    if($scope.gaming === 'true') {
+                    if ($scope.gaming === 'true') {
                         p = /^(?:https?:\/\/)?(?:www\.)?(?:gaming.youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
                         q = /^.*(\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
                     }
@@ -100,7 +118,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     start = $scope.start ? $scope.start : ''; // Start parameter
                     theme = $scope.theme ? $scope.theme : ''; // Theme parameter
                     gaming = $scope.gaming ? $scope.gaming : ''; // Gaming parameter
-                    enablejsapi = $scope.enablejsapi === 'true' ? 1 : 0; 
+                    enablejsapi = $scope.enablejsapi === 'true' ? 1 : 0;
 
                     var vid = $scope.vid;
 
@@ -122,10 +140,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                                 iframe;
 
                             // Creating iframe for video playback
-                            if(!gaming) {
-                                iframe = '<iframe id='+vid+' width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi='+enablejsapi+'&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                            }
-                            else {
+                            if (!gaming) {
+                                iframe = '<iframe id=' + vid + ' width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi=' + enablejsapi + '&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                            } else {
                                 iframe = '<iframe width=' + width + ' height=' + height + ' src="https://gaming.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
                             }
                             // Sanitizing and rendering iframe
