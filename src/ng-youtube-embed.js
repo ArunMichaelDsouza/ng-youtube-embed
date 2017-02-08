@@ -5,6 +5,33 @@
     Demo on CodePen - http://codepen.io/amdsouza92/pen/yNxyJV
 */
 
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-video', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+  
+}
+
+function onPlayerReady() {
+  console.log("hey Im ready");
+  console.log(player);
+  //do whatever you want here. Like, player.playVideo();
+
+}
+
+function onPlayerStateChange() {
+  console.log("my state changed");
+}
+
 (function() {
     "use strict";
     angular.module('ngYoutubeEmbed', []).directive('ngYoutubeEmbed', [function() {
@@ -31,7 +58,8 @@
                 theme: '@theme',
                 width: '@width',
                 height: '@height',
-                gaming: '@gaming'
+                gaming: '@gaming',
+                enablejsapi: '@enablejsapi'
             },
             controller: ['$scope', '$sce', function($scope, $sce) {
 
@@ -70,7 +98,7 @@
                     }
 
                     // Declaring parameters for iframe
-                    var autoplay, autohide, ccloadpolicy, color, controls, disablekb, end, fs, hl, ivloadpolicy, playlist, playsinline, rel, showinfo, start, theme, width, height, gaming;
+                    var autoplay, autohide, ccloadpolicy, color, controls, disablekb, end, fs, hl, ivloadpolicy, playlist, playsinline, rel, showinfo, start, theme, width, height, gaming, enablejsapi;
 
                     // Parameter flags to enable/disable youtube parameters
                     $scope.autoplay == 'true' ? autoplay = 1 : autoplay = 0; // Autoplay parameter
@@ -90,6 +118,9 @@
                     start = $scope.start ? $scope.start : ''; // Start parameter
                     theme = $scope.theme ? $scope.theme : ''; // Theme parameter
                     gaming = $scope.gaming ? $scope.gaming : ''; // Gaming parameter
+                    enablejsapi = $scope.enablejsapi === 'true' ? 1 : 0; 
+
+                    console.log(enablejsapi);
 
                     // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
 
@@ -107,7 +138,7 @@
 
                             // Creating iframe for video playback
                             if(!gaming) {
-                                iframe = '<iframe width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
+                                iframe = '<iframe id="youtube-video" width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi='+enablejsapi+'&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
                             }
                             else {
                                 iframe = '<iframe width=' + width + ' height=' + height + ' src="https://gaming.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';

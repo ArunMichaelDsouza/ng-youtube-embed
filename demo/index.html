@@ -38,85 +38,12 @@
                     <ng-youtube-embed 
                         url="link1" 
                         width="100%"
+                        enablejsapi="true"
                         >
                     </ng-youtube-embed>
                     <label class="text-center">
                         Simple
                     </label>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="wrapper">
-                    <ng-youtube-embed 
-                        url="link2" 
-                        width="100%"
-                        autohide="true"
-                        autoplay="false"
-                        ccloadpolicy="false" 
-                        color="white"
-                        controls="true"
-                        disablekb="false"
-                        end="10"
-                        fs="false"
-                        hl="fr"
-                        ivloadpolicy="false" 
-                        playlist="https://www.youtube.com/watch?v=RNRsvFsY9qk,https://www.youtube.com/watch?v=dulxbKkj9Wg"
-                        playsinline="false" 
-                        rel="false"
-                        showinfo="false"
-                        start="2"
-                        theme="light"
-                        >
-                    </ng-youtube-embed>
-                    <label class="text-center">
-                        Playlist with advanced options
-                    </label>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="wrapper text-center">
-                    <ng-youtube-embed 
-                        url="link3" 
-                        width="100%"
-                        >
-                    </ng-youtube-embed>
-                    <label class="text-center">
-                        Update video URL
-                    </label>
-                    <form name="videoForm">
-                        <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="link3" ng-pattern="/^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/">
-                        <span ng-cloak ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
-                    </form>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="wrapper">
-                    <ng-youtube-embed 
-                        url="link4" 
-                        width="100%"
-                        gaming="true"
-                        >
-                    </ng-youtube-embed>
-                    <label class="text-center">
-                        Youtube Gaming (<a href="https://gaming.youtube.com" target="_blank">https://gaming.youtube.com</a>)
-                    </label>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="wrapper text-center">
-                    <ng-youtube-embed 
-                        url="link5" 
-                        width="100%"
-                        gaming="true"
-                        >
-                    </ng-youtube-embed>
-                    <label class="text-center">
-                        Youtube Gaming - Update video URL
-                    </label>
-                    <form name="videoForm">
-                        <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="link5" ng-pattern="/^(https?\:\/\/)?((www\.)?gaming.youtube\.com)\/.+$/">
-                        <span ng-cloak ng-show="videoForm.link.$error.pattern">Invalid Url!</span>
-                    </form>
                 </div>
             </div>
         </div>
