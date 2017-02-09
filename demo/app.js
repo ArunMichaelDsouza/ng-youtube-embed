@@ -1,6 +1,9 @@
 var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
 
-myApp.controller('myCtrl', ['$scope', '$window', function($scope, $window) {
+myApp.controller('myCtrl', ['$scope', '$window', 'youtubeEmbedUtils',  function($scope, $window, youtubeEmbedUtils) {
+
+
+
     $scope.videoForm = {};
     $scope.link1 = 'OPmOXJtxxoo';
     $scope.link2 = 'https://www.youtube.com/watch?v=E813VYySueM';
@@ -10,19 +13,32 @@ myApp.controller('myCtrl', ['$scope', '$window', function($scope, $window) {
 
     var player, player2;
 
-    $window.onYouTubeIframeAPIReady = function() {
-        player = new YT.Player('youtube-video', {
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-        player2 = new YT.Player('youtube-video2', {
-            events: {
-                'onReady': onPlayerReady2
-            }
-        });
+    $scope.onReadyF = function() {
+        console.log('ready1');
     };
+
+    $scope.onReadyF2 = function() {
+        console.log('ready2');
+    };
+
+    $scope.onStateChange1 = function() {
+        console.log('state 1 change');
+    };
+
+    // $window.onYouTubeIframeAPIReady = function() {
+    //     console.log('test');
+    //     // player = new YT.Player('youtube-video', {
+    //     //     events: {
+    //     //         'onReady': onPlayerReady,
+    //     //         'onStateChange': onPlayerStateChange
+    //     //     }
+    //     // });
+    //     // player2 = new YT.Player('youtube-video2', {
+    //     //     events: {
+    //     //         'onReady': onPlayerReady2
+    //     //     }
+    //     // });
+    // };
 
     function onPlayerReady() {
         console.log("hey Im ready");

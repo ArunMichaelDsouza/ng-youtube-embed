@@ -41,6 +41,8 @@
                         enablejsapi="true"
                         id="youtube-video"
                         vid="youtube-video"
+                        onready="onReadyF"
+                        onstatechange="onStateChange1"
                         >
                     </ng-youtube-embed>
                     <label class="text-center">
@@ -48,7 +50,26 @@
                     </label>
                 </div>
             </div>
-            <button ng-click="play()">Play</button>
+
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <ng-youtube-embed 
+                        url="link2" 
+                        width="100%"
+                        enablejsapi="true"
+                        id="youtube-video2"
+                        vid="youtube-video2"
+                        onready="onReadyF2"
+                        >
+                    </ng-youtube-embed>
+                    <label class="text-center">
+                        Simple2
+                    </label>
+                </div>
+            </div>
+
+            <!-- <button ng-click="play()">Play</button> -->
+
            <!--  <div class="col-sm-4">
                 <div class="wrapper">
                     <ng-youtube-embed 
@@ -81,7 +102,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-    <script src="../build/ng-youtube-embed.min.js"></script>
+    <script src="../src/ng-youtube-embed.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

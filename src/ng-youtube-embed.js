@@ -26,12 +26,30 @@
         return false;
     }
 
-    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', function($sce) {
+    var videoIds = [];
+
+    ngYoutubeEmbed.service('youtubeEmbedUtils', ['$window', '$rootScope', function ($window, $rootScope) {
+        this.setReadyState = function() {
+            window.onYouTubeIframeAPIReady = function() {
+                console.log(videoIds);
+                
+                videoIds.forEach(function(id) {
+                    $rootScope.$emit('test', { message: id });
+                });
+             };
+        };
+    }]);
+
+
+
+    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', 'youtubeEmbedUtils', '$rootScope', function($sce, youtubeEmbedUtils, $rootScope) {
         return {
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
             scope: {
                 url: '=',
+                onready: '=',
+                onstatechange: '=',
                 autoplay: '@',
                 autohide: '@autohide',
                 ccloadpolicy: '@ccloadpolicy',
@@ -58,7 +76,56 @@
 
                 if(attr.enablejsapi === 'true' && !isMyScriptLoaded()) {
                     appendJSAPI();
+                    youtubeEmbedUtils.setReadyState();
                 }
+
+                if(attr.enablejsapi === 'true') {
+                    $rootScope.$on('test', function (event, args) {
+
+                        if(args.message === $scope.vid) {
+
+                            console.log(args);
+                            
+                            var id = args.message;
+
+
+                            var player = new YT.Player(id, {
+                                events: {
+                                    'onReady': $scope.onready,
+                                    'onStateChange': $scope.onstatechange
+                                }
+                            });
+                        }
+                    
+                    });
+                }
+
+
+
+
+
+                // var player;
+                // window.onYouTubeIframeAPIReady = function() {
+
+                //     var id = elem.children()[0].childNodes[0].getAttribute('id');
+
+                //     console.log(id);
+
+                //     player = new YT.Player(id, {
+
+                //     });
+                //     //     events: {
+                //     //         'onReady': onPlayerReady,
+                //     //         'onStateChange': onPlayerStateChange
+                //     //     }
+                //     // });
+                //     // // player2 = new YT.Player('youtube-video2', {
+                //     // //     events: {
+                //     // //         'onReady': onPlayerReady2
+                //     // //     }
+                //     // // });
+                // };
+
 
                 // Remove id attribute from directive
                 elem[0].removeAttribute('id');
@@ -123,6 +190,8 @@
                     enablejsapi = $scope.enablejsapi === 'true' ? 1 : 0;
 
                     var vid = $scope.vid;
+
+                    vid && enablejsapi ? videoIds.push(vid) : null;
 
                     // console.log(enablejsapi);
                     // console.log(vid);
