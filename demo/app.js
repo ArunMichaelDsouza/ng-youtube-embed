@@ -3,6 +3,11 @@ var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
 myApp.controller('myCtrl', ['$scope', '$window', 'youtubeEmbedUtils',  function($scope, $window, youtubeEmbedUtils) {
 
 
+    $scope.getPlayer = function() {
+        var p = youtubeEmbedUtils.getPlayer('youtube-video2');
+        console.log(p);
+        p.playVideo();
+    };
 
     $scope.videoForm = {};
     $scope.link1 = 'OPmOXJtxxoo';
