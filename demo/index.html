@@ -30,8 +30,25 @@
     </style>
 </head>
 <body ng-controller="myCtrl">
-    <img src="http://www.titanui.com/wp-content/uploads/2013/11/30/Flat-AngularJS-Logo-PSD.png"/>
-    <img src="http://www.bengaluruvarunamitra.info/images/icons/Youtube.png"/>
+    <h1 class="text-center">ng-youtube-embed Demo</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <ng-youtube-embed 
+                        video="link1" 
+                        width="100%"
+                       
+                        >
+                    </ng-youtube-embed>
+                    <label class="text-center">
+                        Simple
+                    </label>
+                </div>
+            </div>
+            <!-- <button ng-click="getPlayer()">get</button> -->
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="../build/ng-youtube-embed.min.js"></script>
     <script src="app.js"></script>
