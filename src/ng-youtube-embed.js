@@ -94,6 +94,9 @@
                 url: '=',
                 onready: '=',
                 onstatechange: '=',
+                onplaybackqualitychange: '=',
+                onplaybackratechange: '=',
+                onerror: '=',
                 autoplay: '@',
                 autohide: '@',
                 ccloadpolicy: '@',
@@ -157,11 +160,18 @@
                 if(options.enablejsapi) {
                     $rootScope.$on('youtubeIframeEmbedApiLoaded', function (event, videoId) {
                         if(videoId === options.videoid) {
+
+                            // Create youtube iframe embed video player instance and attach relevant events
                             var player = new YT.Player(videoId, {
                                 events: {
                                     'onReady': scope.onready,
-                                    'onStateChange': scope.onstatechange
+                                    'onStateChange': scope.onstatechange,
+                                    'onPlaybackQualityChange': scope.onplaybackqualitychange,
+                                    'onPlaybackRateChange': scope.onplaybackratechange,
+                                    'onError': scope.onerror,
+                                    'onApiChange': scope.onapichange
                                 }
+                                // All available youtube iframe embed player events - https://developers.google.com/youtube/iframe_api_reference#Events
                             });
 
                             // Emit addNewPlayer event once video player has been craeted

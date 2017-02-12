@@ -63,6 +63,22 @@ myApp.controller('myCtrl', ['$scope', '$window', 'ngYoutubeEmbedService',  funct
 
     }
 
+    $scope.onplaybackqualitychange1 = function() {
+        console.log('quality changed');
+    };
+
+    $scope.onplaybackratechange1 = function() {
+        console.log('playback rate changed');
+    };
+
+    $scope.onerror1 = function() {
+        console.log('error');
+    };
+
+    $scope.onapichange1 = function() {
+        console.log('api changed');
+    };
+
     $scope.play = function() {
     	player.playVideo();
     };
