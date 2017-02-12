@@ -6,52 +6,71 @@
 */
 
 (function() {
-    "use strict";
+    'use strict';
 
+    // ng-youtube-embed main module
     var ngYoutubeEmbed = angular.module('ngYoutubeEmbed', []);
 
-    function appendJSAPI() {
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // Module globals
+    var VIDEO_IDS = [],
+        YOUTUBE_IFRAME_EMBED_API = 'https://www.youtube.com/iframe_api';
+
+    // Function to load youtube iframe embed api
+    function loadYoutubeIframeEmbedApi() {
+        var iframeEmbedScript = document.createElement('script'),
+            firstScript = document.getElementsByTagName('script')[0];
+
+        iframeEmbedScript.src = YOUTUBE_IFRAME_EMBED_API;
+        firstScript.parentNode.insertBefore(iframeEmbedScript, firstScript);
     }
 
-    function isMyScriptLoaded() {
-        var url = "https://www.youtube.com/iframe_api";
-        var scripts = document.getElementsByTagName('script');
+    // Function to check whether youtube iframe embed api has been loaded or not
+    function youtubeIframeEmbedApiLoaded() {
+        var url = YOUTUBE_IFRAME_EMBED_API,
+            scripts = document.getElementsByTagName('script');
+
         for (var i = scripts.length; i--;) {
             if (scripts[i].src == url) return true;
         }
+
         return false;
     }
 
-    var videoIds = [];
 
-    ngYoutubeEmbed.service('youtubeEmbedUtils', ['$window', '$rootScope', function ($window, $rootScope) {
+
+    // ng-youtube-embed events + utils service
+    ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function ($window, $rootScope) {
+
+        // Function to set ready state when youtube iframe embed api has been loaded
         this.setReadyState = function() {
-            window.onYouTubeIframeAPIReady = function() {
-                console.log(videoIds);
+            $window.onYouTubeIframeAPIReady = function() {
+                console.log(VIDEO_IDS);
                 
-                videoIds.forEach(function(id) {
-                    $rootScope.$emit('test', { message: id });
+                VIDEO_IDS.forEach(function(id) {
+
+                    // Emit youtube iframe embed api load event
+                    $rootScope.$emit('youtubeIframeEmbedApiLoaded', id);
                 });
              };
         };
 
-        var players = [];
-        $rootScope.$on('addPlayer', function (event, args) {
-            players[args.id] = args.player;
+        var videoPlayers = [];
+
+        // New video player addition event listener
+        $rootScope.$on('addNewPlayer', function (event, args) {
+            videoPlayers[args.id] = args.player;
         });
 
-        this.getPlayer = function(id) {
-            return players[id];
+        // Function to return iframe player instance based on video id
+        this.getPlayerById = function(id) {
+            return videoPlayers[id];
         };
     }]);
 
 
 
-    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', 'youtubeEmbedUtils', '$rootScope', function($sce, youtubeEmbedUtils, $rootScope) {
+    // ng-youtube-embed directive
+    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', 'ngYoutubeEmbedService', '$rootScope', function($sce, ngYoutubeEmbedService, $rootScope) {
         return {
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
@@ -83,31 +102,27 @@
             },
             link: function($scope, elem, attr) {
 
-                if(attr.enablejsapi === 'true' && !isMyScriptLoaded()) {
-                    appendJSAPI();
-                    youtubeEmbedUtils.setReadyState();
+                if(attr.enablejsapi === 'true' && !youtubeIframeEmbedApiLoaded()) {
+                    loadYoutubeIframeEmbedApi();
+                    ngYoutubeEmbedService.setReadyState();
                 }
 
                 if(attr.enablejsapi === 'true') {
-                    $rootScope.$on('test', function (event, args) {
+                    $rootScope.$on('youtubeIframeEmbedApiLoaded', function (event, videoId) {
 
-                        if(args.message === $scope.vid) {
-
-                            console.log(args);
+                        if(videoId === $scope.vid) {
                             
-                            var id = args.message;
 
-
-                            var player = new YT.Player(id, {
+                            var player = new YT.Player(videoId, {
                                 events: {
                                     'onReady': $scope.onready,
                                     'onStateChange': $scope.onstatechange
                                 }
                             });
 
-                            $rootScope.$emit('addPlayer', {
+                            $rootScope.$emit('addNewPlayer', {
                                 player: player,
-                                id: id
+                                id: videoId
                             });
                         }
                     
@@ -205,7 +220,7 @@
 
                     var vid = $scope.vid;
 
-                    vid && enablejsapi ? videoIds.push(vid) : null;
+                    vid && enablejsapi ? VIDEO_IDS.push(vid) : null;
 
                     // console.log(enablejsapi);
                     // console.log(vid);
