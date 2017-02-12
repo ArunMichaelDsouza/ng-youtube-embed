@@ -206,8 +206,10 @@
                             var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal), iframe;
 
                             // Creating iframe for video playback
-                            iframe = '<iframe id=' + options.videoid + ' width=' + options.width + ' height=' + options.height + ' src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
+                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
                            
+                            console.log(iframe);
+
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                         }
