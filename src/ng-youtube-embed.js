@@ -121,7 +121,7 @@
             },
             link: function(scope, elem, attr) {
 
-                // Remove id attribute from directive wrapper element - this is done for enabling easy dom manipulation and youtube iframe embed api usage without any interference
+                // Remove id attribute from directive wrapper element
                 elem[0].removeAttribute('id');
 
                 // Generate iframe options object
@@ -137,11 +137,11 @@
                     end: scope.end ? scope.end : '',
                     fs: scope.fs == 'false' ? 0 : 1,
                     hl: scope.hl ? scope.hl : '',
-                    IvLoadPolicy: scope.ivloadpolicy == 'false' ? 0 : 1,
+                    ivloadpolicy: scope.ivloadpolicy == 'false' ? 0 : 1,
                     playlist: scope.playlistArray ? scope.playlistArray : '',
                     playsinline: scope.playsinline == 'true' ? 1 : 0,
                     rel: scope.rel == 'false' ? 0 : 1,
-                    ShowInfo: scope.showinfo == 'false' ? 0 : 1,
+                    showinfo: scope.showinfo == 'false' ? 0 : 1,
                     start: scope.start ? scope.start : '',
                     theme: scope.theme ? scope.theme : '',
                     enablejsapi: scope.enablejsapi === 'true' ? 1 : 0,
@@ -206,7 +206,7 @@
                             var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal), iframe;
 
                             // Creating iframe for video playback
-                            iframe = '<iframe id=' + options.videoid + ' width=' + options.width + ' height=' + options.height + ' src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
+                            iframe = '<iframe id=' + options.videoid + ' width=' + options.width + ' height=' + options.height + ' src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
                            
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
