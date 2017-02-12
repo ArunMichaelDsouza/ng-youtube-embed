@@ -113,7 +113,7 @@
                 width: '@',
                 height: '@',
                 enablejsapi: '@',
-                vid: '@vid'
+                videoid: '@'
             },
             link: function(scope, elem, attr) {
 
@@ -122,6 +122,8 @@
 
                 // Generate iframe options object
                 var options = {
+                    width: scope.width ? scope.width : 500,
+                    height: scope.height ? scope.height: 350,
                     autoplay: scope.autoplay == 'true' ? 1 : 0,
                     autohide: scope.autohide == 'true' ? 1 : 0,
                     ccloadpolicy: scope.ccloadpolicy == 'true' ? 1 : 0,
@@ -138,8 +140,10 @@
                     ShowInfo: scope.showinfo == 'false' ? 0 : 1,
                     start: scope.start ? scope.start : '',
                     theme: scope.theme ? scope.theme : '',
-                    enablejsapi: scope.enablejsapi === 'true' ? 1 : 0
+                    enablejsapi: scope.enablejsapi === 'true' ? 1 : 0,
+                    videoid: scope.videoid ? scope.videoid : ''
                 };
+                // All available youtube iframe embed player parameters - https://developers.google.com/youtube/player_parameters
 
                 console.log(options);
 
@@ -152,7 +156,7 @@
                 // Listen to youtubeIframeEmbedApiLoaded event and use youtube iframe embed api to create video player
                 if(options.enablejsapi) {
                     $rootScope.$on('youtubeIframeEmbedApiLoaded', function (event, videoId) {
-                        if(videoId === scope.vid) {
+                        if(videoId === options.videoid) {
                             var player = new YT.Player(videoId, {
                                 events: {
                                     'onReady': scope.onready,
@@ -169,73 +173,36 @@
                     });
                 }
 
-                if (scope.url != undefined) {
+                if (scope.url) {
 
-                    // Detecting playlist and fetching video ids
+                    // Detecting playlist option and retrieving video ids
                     scope.playlistArray = [];
-                    if (scope.playlist != undefined) {
+                    if (options.playlist) {
                         var playlistArray = scope.playlist.split(',');
                         for (var i = 0; i < playlistArray.length; i++) {
                             scope.playlistArray.push(ngYoutubeEmbedService.getVideoIdByUrl(playlistArray[i])); // Scope variable to store playlist ids
                         }
                     }
 
-                    // Declaring parameters for iframe
-                    var autoplay, autohide, ccloadpolicy, color, controls, disablekb, end, fs, hl, ivloadpolicy, playlist, playsinline, rel, showinfo, start, theme, width, height, gaming, enablejsapi;
-
-                    // Parameter flags to enable/disable youtube parameters
-                    scope.autoplay == 'true' ? autoplay = 1 : autoplay = 0; // Autoplay parameter
-                    scope.autohide == 'true' ? autohide = 1 : autohide = 0; // Autohide parameter
-                    scope.ccloadpolicy == 'true' ? ccloadpolicy = 1 : ccloadpolicy = 0; // CCLoadPolicy parameter
-                    scope.color == 'white' ? color = 'white' : color = 'red'; // Color parameter
-                    scope.controls == 'false' ? controls = 0 : controls = 1; // Controls parameter
-                    scope.disablekb == 'false' ? disablekb = 0 : disablekb = 1; // DisableKb parameter
-                    end = scope.end ? scope.end : ''; // End parameter
-                    scope.fs == 'false' ? fs = 0 : fs = 1; // Fullscreen parameter
-                    hl = scope.hl ? scope.hl : ''; // Inteface language parameter
-                    scope.ivloadpolicy == 'false' ? ivloadpolicy = 0 : ivloadpolicy = 1; // IvLoadPolicy parameter
-                    playlist = scope.playlistArray; // Playlist parameter
-                    scope.playsinline == 'true' ? playsinline = 1 : playsinline = 0; // Playsinline parameter
-                    scope.rel == 'false' ? rel = 0 : rel = 1; // Rel parameter
-                    scope.showinfo == 'false' ? showinfo = 0 : showinfo = 1; // ShowInfo parameter
-                    start = scope.start ? scope.start : ''; // Start parameter
-                    theme = scope.theme ? scope.theme : ''; // Theme parameter
-                    gaming = scope.gaming ? scope.gaming : ''; // Gaming parameter
-                    enablejsapi = scope.enablejsapi === 'true' ? 1 : 0;
-
-                    var vid = scope.vid;
-
-                    vid && enablejsapi ? VIDEO_IDS.push(vid) : null;
-
-                    // console.log(enablejsapi);
-                    // console.log(vid);
-
-                    // Please use this link to view all available youtube player parameters - https://developers.google.com/youtube/player_parameters
-
-                    // Setting default width and height if not provided
-                    scope.width != undefined ? width = scope.width : width = '500px';
-                    scope.height != undefined ? height = scope.height : height = '350px';
+                    // Detecting enablejsapi option and adding video ids to global list
+                    options.videoid && options.enablejsapi ? VIDEO_IDS.push(options.videoid) : null;
 
                     // Update iframe when url attribute changes
                     scope.$watch('url', function(newVal) {
                         if (newVal) {
 
                             // Saving id for youtube video link
-                            var ytId = ngYoutubeEmbedService.getVideoIdByUrl(newVal),
-                                iframe;
+                            var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal), iframe;
 
                             // Creating iframe for video playback
-                            if (!gaming) {
-                                iframe = '<iframe id=' + vid + ' width=' + width + ' height=' + height + ' src="https://www.youtube.com/embed/' + ytId + '?enablejsapi=' + enablejsapi + '&autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                            } else {
-                                iframe = '<iframe width=' + width + ' height=' + height + ' src="https://gaming.youtube.com/embed/' + ytId + '?autoplay=' + autoplay + '&autohide=' + autohide + '&cc_load_policy=' + ccloadpolicy + '&color=' + color + '&controls=' + controls + '&disablekb=' + disablekb + '&end=' + end + '&fs=' + fs + '&hl=' + hl + '&playlist=' + playlist + '&playsinline=' + playsinline + '&rel=' + rel + '&showinfo=' + showinfo + '&start=' + start + '&theme=' + theme + '" frameborder="0" allowfullscreen></iframe>';
-                            }
+                            iframe = '<iframe id=' + options.videoid + ' width=' + options.width + ' height=' + options.height + ' src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
+                           
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                         }
                     });
                 } else {
-                    console.warn('');
+                    console.warn('Please enter a valid youtube video url or id to render the iframe embed player');
                 }
             }
         }
