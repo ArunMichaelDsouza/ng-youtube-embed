@@ -97,6 +97,7 @@
                 onplaybackqualitychange: '=',
                 onplaybackratechange: '=',
                 onerror: '=',
+                onapichange: '=',
                 autoplay: '@',
                 autohide: '@',
                 ccloadpolicy: '@',
