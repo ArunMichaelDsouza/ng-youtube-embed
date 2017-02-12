@@ -45,9 +45,7 @@
 
         // Function to set ready state when youtube iframe embed api has been loaded
         this.setReadyState = function() {
-            $window.onYouTubeIframeAPIReady = function() {
-                console.log(VIDEO_IDS);
-                
+            $window.onYouTubeIframeAPIReady = function() {                
                 VIDEO_IDS.forEach(function(id) {
 
                     // Emit youtube iframe embed api load event
@@ -149,7 +147,6 @@
                 };
                 // All available youtube iframe embed player parameters - https://developers.google.com/youtube/player_parameters
 
-                console.log(options);
 
                 // Load youtube iframe embed api only if the option is present and it has not been loaded already
                 if(options.enablejsapi && !youtubeIframeEmbedApiLoaded()) {
@@ -208,8 +205,6 @@
                             // Creating iframe for video playback
                             iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&autohide=' + options.autohide + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&theme=' + options.theme + '" frameborder="0" allowfullscreen></iframe>';
                            
-                            console.log(iframe);
-
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                         }
