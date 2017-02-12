@@ -91,7 +91,7 @@
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
             scope: {
-                url: '=',
+                video: '=',
                 onready: '=',
                 onstatechange: '=',
                 onplaybackqualitychange: '=',
@@ -184,7 +184,7 @@
                     });
                 }
 
-                if (scope.url) {
+                if (scope.video) {
 
                     // Detecting playlist option and retrieving video ids
                     scope.playlistArray = [];
@@ -199,7 +199,7 @@
                     options.videoid && options.enablejsapi ? VIDEO_IDS.push(options.videoid) : null;
 
                     // Update iframe when url attribute changes
-                    scope.$watch('url', function(newVal) {
+                    scope.$watch('video', function(newVal) {
                         if (newVal) {
 
                             // Saving id for youtube video link
