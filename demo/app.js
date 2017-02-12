@@ -10,7 +10,7 @@ myApp.controller('myCtrl', ['$scope', '$window', 'ngYoutubeEmbedService',  funct
     };
 
     $scope.videoForm = {};
-    $scope.link1 = 'https://gaming.youtube.com/watch?v=1pxAXJNJ-z8';
+    $scope.link1 = '1pxAXJNJ-z8';
     $scope.link2 = 'https://www.youtube.com/watch?v=E813VYySueM';
     $scope.link3 = 'https://www.youtube.com/watch?v=SCVvhUW7cxo';
     $scope.link4 = 'https://gaming.youtube.com/watch?v=kNcFa3Xuk5U';
