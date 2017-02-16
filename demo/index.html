@@ -36,7 +36,6 @@
                 <div class="wrapper">
                     <ng-youtube-embed 
                         video="link1" 
-                        width="100%"
                         autoplay="false"
                         color="red"
                         controls="true"
@@ -47,9 +46,18 @@
                         rel="false"
                         showinfo="true"
                         start="3"
+                        enablejsapi="true"
+                        videoid="youtube-video"
+                        onready="ready"
+                        onstatechange="stateChanged"
+                        onplaybackqualitychange="qualityChanged"
+                        onplaybackratechange="rateChanged"
+                        onerror="errored"
+                        onapichange="apiChanged"
                         >
                     </ng-youtube-embed>
                 </div>
+                <button ng-click="play()">play</button>
             </div>
         </div>
     </div>
