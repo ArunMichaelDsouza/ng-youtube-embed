@@ -30,7 +30,6 @@
     </style>
 </head>
 <body ng-controller="myCtrl">
-    <h1 class="text-center">ng-youtube-embed Demo</h1>
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -38,15 +37,11 @@
                     <ng-youtube-embed 
                         video="link1" 
                         width="100%"
-                       
+                        autoplay="false"
                         >
                     </ng-youtube-embed>
-                    <label class="text-center">
-                        Simple
-                    </label>
                 </div>
             </div>
-            <!-- <button ng-click="getPlayer()">get</button> -->
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
