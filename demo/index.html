@@ -57,9 +57,13 @@
             <div class="col-sm-6 wrapper">
                 <ng-youtube-embed
                     video="video5"
+                    enablejsapi="true"
+                    videoid="stillEchoes"
                     width="100%">
                 </ng-youtube-embed>
                 <label class="text-center">Youtube iframe embed JS API support (with all supported events and actions)</label>
+                <button class="btn btn-primary" ng-click="playVideo()">Play video</button>
+                <button class="btn btn-info" ng-click="showVideoInfo()">Show video info</button>
             </div>
         </div>
     </div>

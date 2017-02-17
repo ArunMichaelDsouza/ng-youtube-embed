@@ -11,4 +11,14 @@ myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService',  function($scope,
     $scope.video4 = 'https://gaming.youtube.com/watch?v=P_XwcUdSS1M';
 
     $scope.video5 = 'https://www.youtube.com/watch?v=OCmBWOF1A0g';
+
+    $scope.playVideo = function() {
+        var player = ngYoutubeEmbedService.getPlayerById('stillEchoes');
+        player.playVideo();
+    };
+
+    $scope.showVideoInfo = function() {
+        var player = ngYoutubeEmbedService.getPlayerById('stillEchoes');
+        player.showVideoInfo();
+    };
 }]);
