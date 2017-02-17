@@ -1,0 +1,29 @@
+h1 {
+    font-weight: 400;
+    font-size: 1.75em;
+    color: #222;
+    margin-bottom: 60px;
+}
+
+.wrapper {
+    margin: 20px 0;
+    min-height: 440px;
+}
+
+label {
+    font-weight: 400;
+    font-size: 1.15em;
+    display: block;
+    padding: 10px 0;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 70%;
+    margin: 0 auto;
+}

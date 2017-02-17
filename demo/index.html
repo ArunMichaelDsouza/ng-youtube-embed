@@ -1,69 +1,65 @@
 <!DOCTYPE html>
-<!-- 
-    ng-youtube-embed Demo file
-    View on CodePen - http://codepen.io/amdsouza92/pen/yNxyJV
--->
 <html lang="en" ng-app="myApp">
 <head>
     <title>ng-youtube-embed Demo</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <style>
-        h1 {
-            font-weight: 700;
-            font-size: 1.5em;
-            color: #222;
-        }
-        .wrapper {
-            margin: 30px 0;
-        }
-        label {
-            font-weight: 400;
-            font-size: 1.1em;
-            display: block;
-            padding: 10px 0;
-        }
-        .btn {
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body ng-controller="myCtrl">
+    <div class="text-center">
+        <img src="../icon.png" alt="ng-youtube-embed icon" />
+        <h1>ng-youtube-embed Demo</h1>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="wrapper">
-                    <ng-youtube-embed 
-                        video="link1" 
-                        autoplay="false"
-                        color="red"
-                        controls="true"
-                        disablekb="false"
-                        end=""
-                        fs="true"
-                        hl="en"
-                        rel="false"
-                        playsinline="true"
-                        showinfo="true"
-                        start=""
-                        enablejsapi="true"
-                        videoid="youtube-video"
-                        onready="ready"
-                        onstatechange="stateChanged"
-                        onplaybackqualitychange="qualityChanged"
-                        onplaybackratechange="rateChanged"
-                        onerror="errored"
-                        onapichange="apiChanged"
-                        modestbranding="true"
-                        playlist="https://www.youtube.com/embed/E813VYySueM"
-                        loop=""
-                        ivloadpolicy=""
-                        ccloadpolicy="true"
-                        >
-                    </ng-youtube-embed>
-                </div>
-                <button ng-click="play()">play</button>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    video="video1"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Simple embed (Add youtube video URL or Id)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    video="video2"
+                    playlist="https://www.youtube.com/watch?v=dulxbKkj9Wg,https://www.youtube.com/watch?v=lxgelwqe8-E"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Playlist</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    video="video3"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Update video URL / Id (watch scope changes)</label>
+                <form>
+                    <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="video3">
+                </form>
+            </div>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    video="video4"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Out of the box <a href="https://gaming.youtube.com/" target="_blank">gaming.youtube.com</a> support (without any extra parameter)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    listType="search"
+                    list="jsconfeu"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Support for preloaded lists (no need to provide video URL or Id)</label>
+            </div>
+            <div class="col-sm-6 wrapper">
+                <ng-youtube-embed
+                    video="video5"
+                    width="100%">
+                </ng-youtube-embed>
+                <label class="text-center">Youtube iframe embed JS API support (with all supported events and actions)</label>
             </div>
         </div>
     </div>

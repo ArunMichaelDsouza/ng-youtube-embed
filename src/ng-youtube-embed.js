@@ -15,7 +15,7 @@
     var VIDEO_IDS = [],
         YOUTUBE_IFRAME_EMBED_API = 'https://www.youtube.com/iframe_api',
         YOUTUBE_VIDEO_ID_REGEX = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
-        YOUTUBE_URL_REGEX = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        YOUTUBE_VIDEO_ID_REGEX_GAMING = /^(?:https?:\/\/)?(?:www\.)?(?:gaming.youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
     // Function to load youtube iframe embed api
     function loadYoutubeIframeEmbedApi() {
@@ -77,13 +77,9 @@
         // Function to get youtube video id by url
         this.getVideoIdByUrl = function(url) {
 
-            // Reset youtube video id regex when gaming.youtube url is found
-            if (url.includes('gaming')) {
-                YOUTUBE_VIDEO_ID_REGEX = /^(?:https?:\/\/)?(?:www\.)?(?:gaming.youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            }
-
-            var match = url.match(YOUTUBE_URL_REGEX),
-                id = url.match(YOUTUBE_VIDEO_ID_REGEX);
+            // Reset youtube video id regex when gaming.youtube url is found and vice versa
+            var ytVideoRegex = url.includes('gaming') ? YOUTUBE_VIDEO_ID_REGEX_GAMING : YOUTUBE_VIDEO_ID_REGEX,
+                id = url.match(ytVideoRegex);
 
             return id !== null ? id[1] : url;
         };
