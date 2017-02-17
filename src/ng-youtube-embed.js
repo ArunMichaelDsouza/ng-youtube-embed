@@ -39,6 +39,14 @@
     };
 
 
+    // Function to generate iframe embed player template
+    function generateEmbedIframeTemplate(options, scope, videoId) {
+        var youtubeVideoId = videoId ? videoId : '';
+
+        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
+    };
+
+
 
     // ng-youtube-embed events + utils service
     ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function($window, $rootScope) {
@@ -204,18 +212,24 @@
                         if (newVal) {
 
                             // Saving id for youtube video link
-                            var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal),
-                                iframe;
+                            var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal);
 
                             // Creating iframe template for video playback
-                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
+                            var iframe = generateEmbedIframeTemplate(options, scope, youtubeVideoId);
 
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                         }
                     });
-                } else {
-                    console.warn('Please enter a valid youtube video url or id to render the iframe embed player');
+                } 
+
+                else if (!scope.video && options.listType && options.list) {
+                    var iframe = generateEmbedIframeTemplate(options, scope);
+                    scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
+                } 
+
+                else {
+                    console.warn('Please provide a valid youtube video URL or ID to render the iframe embed player. Read documentation here - https://github.com/ArunMichaelDsouza/ng-youtube-embed');
                 }
             }
         }
