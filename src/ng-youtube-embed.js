@@ -43,7 +43,7 @@
     function generateEmbedIframeTemplate(options, scope, videoId) {
         var youtubeVideoId = videoId ? videoId : '';
 
-        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
+        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&iv_load_policy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
     }
 
 
@@ -144,7 +144,7 @@
                     end: scope.end ? scope.end : '',
                     fs: scope.fs == 'false' ? 0 : 1,
                     hl: scope.hl ? scope.hl : '',
-                    ivloadpolicy: scope.ivloadpolicy == 'false' ? 0 : 1,
+                    ivloadpolicy: scope.ivloadpolicy == 'false' ? 3 : 1,
                     playlist: scope.playlist ? scope.playlist : '',
                     playsinline: scope.playsinline == 'true' ? 1 : 0,
                     rel: scope.rel == 'false' ? 0 : 1,
