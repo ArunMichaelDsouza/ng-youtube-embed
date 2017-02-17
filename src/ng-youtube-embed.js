@@ -24,7 +24,7 @@
 
         iframeEmbedScript.src = YOUTUBE_IFRAME_EMBED_API;
         firstScript.parentNode.insertBefore(iframeEmbedScript, firstScript);
-    };
+    }
 
     // Function to check whether youtube iframe embed api has been loaded or not
     function youtubeIframeEmbedApiLoaded() {
@@ -36,7 +36,7 @@
         }
 
         return false;
-    };
+    }
 
 
     // Function to generate iframe embed player template
@@ -44,7 +44,7 @@
         var youtubeVideoId = videoId ? videoId : '';
 
         return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
-    };
+    }
 
 
 
@@ -85,7 +85,7 @@
             var match = url.match(YOUTUBE_URL_REGEX),
                 id = url.match(YOUTUBE_VIDEO_ID_REGEX);
 
-            return id != null ? id[1] : url;
+            return id !== null ? id[1] : url;
         };
     }]);
 
@@ -205,6 +205,7 @@
                 // Detecting enablejsapi option and adding video ids to global list
                 options.videoid && options.enablejsapi ? VIDEO_IDS.push(options.videoid) : null;
 
+                // If video URL or ID is present, render regular video frame
                 if (scope.video) {
 
                     // Update iframe when url attribute changes
@@ -223,15 +224,17 @@
                     });
                 } 
 
+                // If video URL or ID is not present but list and listType are present, then render list frame (with added list preloaded)
                 else if (!scope.video && options.listType && options.list) {
                     var iframe = generateEmbedIframeTemplate(options, scope);
                     scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                 } 
 
+                // Else throw a warning in the console
                 else {
                     console.warn('Please provide a valid youtube video URL or ID to render the iframe embed player. Read documentation here - https://github.com/ArunMichaelDsouza/ng-youtube-embed');
                 }
             }
-        }
+        };
     }]);
 })();
