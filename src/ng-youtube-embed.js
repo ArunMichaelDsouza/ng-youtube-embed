@@ -114,7 +114,8 @@
                 height: '@',
                 enablejsapi: '@',
                 videoid: '@',
-                modestbranding: '@'
+                modestbranding: '@',
+                loop: '@'
             },
             link: function(scope, elem, attr) {
 
@@ -141,7 +142,8 @@
                     start: scope.start ? scope.start : '',
                     enablejsapi: scope.enablejsapi === 'true' ? 1 : 0,
                     videoid: scope.videoid ? scope.videoid : '',
-                    modestbranding: scope.modestbranding === 'true' ? 1 : 0
+                    modestbranding: scope.modestbranding === 'true' ? 1 : 0,
+                    loop: scope.loop === 'true' ? 1 : ''
                 };
                 // All available youtube iframe embed player parameters - https://developers.google.com/youtube/player_parameters
 
@@ -201,7 +203,7 @@
                             var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal), iframe;
 
                             // Creating iframe for video playback
-                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + options.playlist + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '" frameborder="0" allowfullscreen></iframe>';
+                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '" frameborder="0" allowfullscreen></iframe>';
                            
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
