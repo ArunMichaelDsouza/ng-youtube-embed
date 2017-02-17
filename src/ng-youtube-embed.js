@@ -24,7 +24,7 @@
 
         iframeEmbedScript.src = YOUTUBE_IFRAME_EMBED_API;
         firstScript.parentNode.insertBefore(iframeEmbedScript, firstScript);
-    }
+    };
 
     // Function to check whether youtube iframe embed api has been loaded or not
     function youtubeIframeEmbedApiLoaded() {
@@ -36,28 +36,28 @@
         }
 
         return false;
-    }
+    };
 
 
 
     // ng-youtube-embed events + utils service
-    ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function ($window, $rootScope) {
+    ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function($window, $rootScope) {
 
         // Function to set ready state when youtube iframe embed api has been loaded
         this.setReadyState = function() {
-            $window.onYouTubeIframeAPIReady = function() {                
+            $window.onYouTubeIframeAPIReady = function() {
                 VIDEO_IDS.forEach(function(id) {
 
                     // Emit youtube iframe embed api load event
                     $rootScope.$emit('youtubeIframeEmbedApiLoaded', id);
                 });
-             };
+            };
         };
 
         var videoPlayers = [];
 
         // New video player addition event listener
-        $rootScope.$on('addNewPlayer', function (event, args) {
+        $rootScope.$on('addNewPlayer', function(event, args) {
             videoPlayers[args.id] = args.player;
         });
 
@@ -115,7 +115,9 @@
                 enablejsapi: '@',
                 videoid: '@',
                 modestbranding: '@',
-                loop: '@'
+                loop: '@',
+                listtype: '@',
+                list: '@'
             },
             link: function(scope, elem, attr) {
 
@@ -125,7 +127,7 @@
                 // Generate iframe options object
                 var options = {
                     width: scope.width ? scope.width : 500,
-                    height: scope.height ? scope.height: 350,
+                    height: scope.height ? scope.height : 350,
                     autoplay: scope.autoplay == 'true' ? 1 : 0,
                     ccloadpolicy: scope.ccloadpolicy == 'true' ? 1 : 0,
                     color: scope.color == 'white' ? 'white' : 'red',
@@ -143,21 +145,23 @@
                     enablejsapi: scope.enablejsapi === 'true' ? 1 : 0,
                     videoid: scope.videoid ? scope.videoid : '',
                     modestbranding: scope.modestbranding === 'true' ? 1 : 0,
-                    loop: scope.loop === 'true' ? 1 : ''
+                    loop: scope.loop === 'true' ? 1 : '',
+                    listType: scope.listtype ? scope.listtype : '',
+                    list: scope.list ? scope.list : ''
                 };
                 // All available youtube iframe embed player parameters - https://developers.google.com/youtube/player_parameters
 
 
                 // Load youtube iframe embed api only if the option is present and it has not been loaded already
-                if(options.enablejsapi && !youtubeIframeEmbedApiLoaded()) {
+                if (options.enablejsapi && !youtubeIframeEmbedApiLoaded()) {
                     loadYoutubeIframeEmbedApi();
                     ngYoutubeEmbedService.setReadyState();
                 }
 
                 // Listen to youtubeIframeEmbedApiLoaded event and use youtube iframe embed api to create video player
-                if(options.enablejsapi) {
-                    $rootScope.$on('youtubeIframeEmbedApiLoaded', function (event, videoId) {
-                        if(videoId === options.videoid) {
+                if (options.enablejsapi) {
+                    $rootScope.$on('youtubeIframeEmbedApiLoaded', function(event, videoId) {
+                        if (videoId === options.videoid) {
 
                             // Create youtube iframe embed video player instance and attach relevant events
                             var player = new YT.Player(videoId, {
@@ -181,30 +185,31 @@
                     });
                 }
 
-                if (scope.video) {
-
-                    // Detecting playlist option and retrieving video ids
-                    scope.playlistArray = [];
-                    if (options.playlist) {
-                        var playlistArray = scope.playlist.split(',');
-                        for (var i = 0; i < playlistArray.length; i++) {
-                            scope.playlistArray.push(ngYoutubeEmbedService.getVideoIdByUrl(playlistArray[i])); // Scope variable to store playlist ids
-                        }
+                // Detecting playlist option and retrieving video ids
+                scope.playlistArray = [];
+                if (options.playlist) {
+                    var playlistArray = scope.playlist.split(',');
+                    for (var i = 0; i < playlistArray.length; i++) {
+                        scope.playlistArray.push(ngYoutubeEmbedService.getVideoIdByUrl(playlistArray[i])); // Scope variable to store playlist ids
                     }
+                }
 
-                    // Detecting enablejsapi option and adding video ids to global list
-                    options.videoid && options.enablejsapi ? VIDEO_IDS.push(options.videoid) : null;
+                // Detecting enablejsapi option and adding video ids to global list
+                options.videoid && options.enablejsapi ? VIDEO_IDS.push(options.videoid) : null;
+
+                if (scope.video) {
 
                     // Update iframe when url attribute changes
                     scope.$watch('video', function(newVal) {
                         if (newVal) {
 
                             // Saving id for youtube video link
-                            var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal), iframe;
+                            var youtubeVideoId = ngYoutubeEmbedService.getVideoIdByUrl(newVal),
+                                iframe;
 
-                            // Creating iframe for video playback
-                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '" frameborder="0" allowfullscreen></iframe>';
-                           
+                            // Creating iframe template for video playback
+                            iframe = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&ivloadpolicy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
+
                             // Sanitizing and rendering iframe
                             scope.youtubeEmbedFrame = $sce.trustAsHtml(iframe);
                         }
