@@ -138,6 +138,11 @@ Supported values are : ``true`` and ``false``.
 * [m]: Mute or unmute the video
 * [0-9]: Jump to a point in the video. 0 jumps to the beginning of the video, 1 jumps to the point 10% into the video, 2 jumps to the point 20% into the video, and so forth.
 
+#### ``enablejsapi {boolean} | Default: false``
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. 
+For more information on the iframe API and how to use it, see the [iframe API documentation](https://developers.google.com/youtube/iframe_api_reference). 
+Supported values are : ``true`` and ``false``.
+
 #### ``end {number}``
 This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
@@ -154,37 +159,6 @@ The parameter value is an [ISO 639-1 two-letter language code](http://www.loc.go
 #### ``ivloadpolicy {boolean} | Default: true``
 Setting the parameter's value to ``false`` causes video annotations to be hidden by default.
 Supported values are : ``true`` and ``false``.
-
-#### ``playlist {string}``
-This parameter specifies a comma-separated list of video URLs or IDs to play.
-
-#### ``playsinline {boolean} | Default: false``
-This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS.
-Supported values are : ``true`` and ``false``.
-
-#### ``rel {boolean} | Default: true``
-This parameter indicates whether the player should show related videos when playback of the initial video ends.
-Supported values are : ``true`` and ``false``.
-
-#### ``showinfo {boolean} | Default: true``
-Setting the parameter's value to ``false`` causes the player to not display information like the video title and uploader before the video starts playing.
-Supported values are : ``true`` and ``false``.
-
-#### ``start {number}``
-This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
-Supported value is a positive integer.
-
-##### New in ``1.7.9``
-
-#### ``enablejsapi {boolean} | Default: false``
-Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. 
-For more information on the iframe API and how to use it, see the [iframe API documentation](https://developers.google.com/youtube/iframe_api_reference). 
-Supported values are : ``true`` and ``false``.
-
-#### ``modestbranding {boolean} | Default: false``
-This parameter lets you use a Youtube player that does not show a Youtube logo. Set the parameter value to ``true`` to prevent the Youtube logo from displaying in the control bar.
-Supported values are : ``true`` and ``false``.
-> Note: A small YouTube text label will still display in the upper-right corner of a paused video when the user's mouse pointer hovers over the player.
 
 #### ``listtype {string}``
 This parameter, in conjunction with the ``list`` parameter, identifies the content that will load in the player. Valid parameter values are ``playlist``, ``search``, and ``user_uploads``.
@@ -208,8 +182,32 @@ Supported values are : ``true`` and ``false``.
 
 > Note: To loop a single video, set the ``loop`` parameter value to ``true`` and set the ``playlist`` parameter value to the same video URL or ID already specified in the ``video`` parameter.
 
+#### ``modestbranding {boolean} | Default: false``
+This parameter lets you use a Youtube player that does not show a Youtube logo. Set the parameter value to ``true`` to prevent the Youtube logo from displaying in the control bar.
+Supported values are : ``true`` and ``false``.
+> Note: A small YouTube text label will still display in the upper-right corner of a paused video when the user's mouse pointer hovers over the player.
+
 #### ``origin {string}``
 This parameter provides an extra security measure for the iframe API and is only supported for iframe embeds. If you are using the iframe API, which means you are setting the ``enablejsapi`` parameter value to ``true``, you should always specify your domain as the ``origin`` parameter value.
+
+#### ``playlist {string}``
+This parameter specifies a comma-separated list of video URLs or IDs to play.
+
+#### ``playsinline {boolean} | Default: false``
+This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS.
+Supported values are : ``true`` and ``false``.
+
+#### ``rel {boolean} | Default: true``
+This parameter indicates whether the player should show related videos when playback of the initial video ends.
+Supported values are : ``true`` and ``false``.
+
+#### ``showinfo {boolean} | Default: true``
+Setting the parameter's value to ``false`` causes the player to not display information like the video title and uploader before the video starts playing.
+Supported values are : ``true`` and ``false``.
+
+#### ``start {number}``
+This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
+Supported value is a positive integer.
 
 <br/>
 
