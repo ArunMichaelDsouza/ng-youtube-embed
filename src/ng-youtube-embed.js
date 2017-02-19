@@ -43,7 +43,7 @@
     function generateEmbedIframeTemplate(options, scope, videoId) {
         var youtubeVideoId = videoId ? videoId : '';
 
-        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&iv_load_policy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '" frameborder="0" allowfullscreen></iframe>';
+        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&iv_load_policy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '&origin=' + options.origin +'" frameborder="0" allowfullscreen></iframe>';
     }
 
 
@@ -121,7 +121,8 @@
                 modestbranding: '@',
                 loop: '@',
                 listtype: '@',
-                list: '@'
+                list: '@',
+                origin: '@'
             },
             link: function(scope, elem, attr) {
 
@@ -151,7 +152,8 @@
                     modestbranding: scope.modestbranding === 'true' ? 1 : 0,
                     loop: scope.loop === 'true' ? 1 : '',
                     listType: scope.listtype ? scope.listtype : '',
-                    list: scope.list ? scope.list : ''
+                    list: scope.list ? scope.list : '',
+                    origin: scope.origin ? scope.origin : ''
                 };
                 // All available youtube iframe embed player parameters - https://developers.google.com/youtube/player_parameters
 

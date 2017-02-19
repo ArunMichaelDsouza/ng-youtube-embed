@@ -173,6 +173,11 @@ Supported value is a positive integer.
 
 ##### New in ``1.7.9``
 
+#### ``enablejsapi {boolean} | Default: false``
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. 
+For more information on the iframe API and how to use it, see the [iframe API documentation](https://developers.google.com/youtube/iframe_api_reference). 
+Supported values are : ``true`` and ``false``.
+
 #### ``modestbranding {boolean} | Default: false``
 This parameter lets you use a Youtube player that does not show a Youtube logo. Set the parameter value to ``true`` to prevent the Youtube logo from displaying in the control bar.
 Supported values are : ``true`` and ``false``.
@@ -199,6 +204,9 @@ This parameter only works when used in conjunction with the ``playlist`` paramet
 Supported values are : ``true`` and ``false``.
 
 > Note: To loop a single video, set the ``loop`` parameter value to ``true`` and set the ``playlist`` parameter value to the same video URL or ID already specified in the ``video`` parameter.
+
+#### ``origin {string}``
+This parameter provides an extra security measure for the iframe API and is only supported for iframe embeds. If you are using the iframe API, which means you are setting the ``enablejsapi`` parameter value to ``true``, you should always specify your domain as the ``origin`` parameter value.
 
 #### Deprecated parameters
 
