@@ -136,7 +136,7 @@
                     ccloadpolicy: scope.ccloadpolicy == 'true' ? 1 : 0,
                     color: scope.color == 'white' ? 'white' : 'red',
                     controls: scope.controls == 'false' ? 0 : 1,
-                    disablekb: scope.disablekb == 'false' ? 0 : 1,
+                    disablekb: scope.disablekb == 'false' ? 1 : 0,
                     end: scope.end ? scope.end : '',
                     fs: scope.fs == 'false' ? 0 : 1,
                     hl: scope.hl ? scope.hl : '',
