@@ -89,11 +89,14 @@ Where ``videoID`` is the scope variable containing the Youtube video ID.
 
 <br/>
 
-## Options
+## Parameters
 
 ng-youtube-embed supports all of the available Youtube player parameters. To view the list with details, click [here](https://developers.google.com/youtube/player_parameters).
 
 #### Supported parameters
+
+#### ``video {string}``
+This parameter specifies the scope variable containing the Youtube video URL or ID for which you want to render the iframe video player.
 
 #### ``width {string} | Default: 500px``
 This parameter specifies the width of the Youtube iframe embed player.
@@ -208,7 +211,12 @@ Supported values are : ``true`` and ``false``.
 #### ``origin {string}``
 This parameter provides an extra security measure for the iframe API and is only supported for iframe embeds. If you are using the iframe API, which means you are setting the ``enablejsapi`` parameter value to ``true``, you should always specify your domain as the ``origin`` parameter value.
 
+<br/>
+
 #### Deprecated parameters
+
+#### ``url``
+ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old ``url`` parameter has been replaced in favour of the new ``video`` parameter.
 
 #### ``autohide``
 See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
