@@ -212,7 +212,7 @@ Supported value is a positive integer.
 #### Deprecated parameters
 
 #### ``url``
-ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old ``url`` parameter has been replaced in favour of the new ``video`` parameter.
+ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old ``url`` parameter has been deprecated in favour of the new ``video`` parameter.
 
 #### ``autohide``
 See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
