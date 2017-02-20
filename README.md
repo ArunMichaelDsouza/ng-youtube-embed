@@ -209,8 +209,6 @@ Supported values are : ``true`` and ``false``.
 This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
 
-<br/>
-
 #### Deprecated parameters
 
 #### ``url``
