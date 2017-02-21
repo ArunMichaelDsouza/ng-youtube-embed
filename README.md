@@ -45,7 +45,7 @@ Add ``ngYoutubeEmbed`` as a dependency in your angular app module.
 var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
 ```
 
-Include the ``video`` parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render an iframe player.
+Add the directive with the ``video`` parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render the iframe player.
 
 Example - 
 
@@ -84,8 +84,6 @@ Example -
 ```
 
 ```javascript
-var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
-
 myApp.controller('myCtrl', ['$scope', function($scope) {
     $scope.videoID = 'OPmOXJtxxoo';
 }]);
@@ -129,7 +127,7 @@ Supported values are : ``true`` and ``false``.
 
 #### ``color {string} | Default: red``
 This parameter specifies the color that will be used in the player's video progress bar to highlight the amount of the video that the viewer has already seen. Supported values are : ``red`` and ``white``.
-> Note: Setting the color parameter to white will disable the ``modestbranding`` option.
+> Note: Setting the color parameter to ``white`` will disable the ``modestbranding`` option.
 
 #### ``controls {boolean} | Default: true``
 This parameter indicates whether the video player controls are displayed.
@@ -173,11 +171,11 @@ If the ``listtype`` parameter value is ``search``, then the ``list`` parameter v
 
 If the ``listtype`` parameter value is ``user_uploads``, then the ``list`` parameter value identifies the Youtube channel whose uploaded videos will be loaded.
 
-If the ``listtype`` parameter value is ``playlist``, then the ``list`` parameter value specifies a Youtube playlist ID. In the parameter value.
+If the ``listtype`` parameter value is ``playlist``, then the ``list`` parameter value specifies a Youtube playlist ID in the parameter value.
 
 > Note: If you specify values for the ``list`` and ``listType`` parameters, then you dont need to specify a video URL or ID in the the ``video`` parameter.
 
-#### ``loop {boolean}`` | ``Default value: false``
+#### ``loop {boolean} | Default value: false``
 This parameter only works when used in conjunction with the ``playlist`` parameter. It specifies whether to loop the entire playlist or not.
 Supported values are : ``true`` and ``false``.
 
@@ -213,9 +211,9 @@ Supported value is a positive integer.
 #### Youtube iframe embed JS API event parameters
 
 The Youtube JS API fires events to notify your application of changes to the embedded player.
-In order to use these parameters you need to enable the Youtube js api using the ``enablejsapi`` option.
+In order to use these parameters you need to enable the Youtube JS API using the ``enablejsapi`` option.
 
-Check out the Youtube JS API events reference [here](https://developers.google.com/youtube/iframe_api_reference#Events).
+Check out the Youtube JS API ``events`` reference [here](https://developers.google.com/youtube/iframe_api_reference#Events).
 
 #### ``onready {string}``
 This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player is ready or has finished loading.
