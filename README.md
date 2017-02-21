@@ -310,6 +310,8 @@ myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService', function($scope, 
 
 Inject the ``ngYoutubeEmbedService`` in your controller to get access to player instances and Youtube iframe API player methods. 
 
+> Note: The service methods are only available once the ``onYouTubeIframeAPIReady`` event has been fired after initialising the iframe embed player.
+
 #### ``getPlayerById( videoID )``
 Returns the instance of the iframe embed player, for the video ID passed to this method.
 
