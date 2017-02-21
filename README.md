@@ -142,8 +142,7 @@ Setting the parameter's value to ``true`` causes the player to not respond to ke
 Supported values are : ``true`` and ``false``.
 
 #### ``enablejsapi {boolean} | Default: false``
-Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. 
-For more information on the iframe API and how to use it, see the [iframe API documentation](https://developers.google.com/youtube/iframe_api_reference). 
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#Events and Instance methods) for usage. 
 Supported values are : ``true`` and ``false``.
 
 #### ``end {number}``
@@ -228,7 +227,7 @@ ng-youtube-embed now has out of the box support for [gaming.youtube.com](https:/
 
 <br/>
 
-## Events
+## Events and Instance methods
 
 The Youtube JS API fires events to notify your application of changes to the embedded player.
 In order to use these event parameters you need to enable the Youtube JS API using the ``enablejsapi`` option.
@@ -253,7 +252,7 @@ This parameter specifies the scope variable containing the function, which gets 
 #### ``onapichange {string}``
 This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player starts receiving API calls.
 
-JS API events Example - 
+### JS API events example - 
 
 ```html
 <ng-youtube-embed 
@@ -281,21 +280,29 @@ myApp.controller('myCtrl', ['$scope', function($scope) {
 }]);
 ```
 
-JS API methods usage Example - 
+### JS API player instance example - 
+
+You can get access to your iframe player instance by specifying the ``videoid`` parameter and injecting ``ngYoutubeEmbedService`` in your controller.
+
+For more information on the iframe API and how to use it, see the [iframe API documentation](https://developers.google.com/youtube/iframe_api_reference)
 
 ```html
 <ng-youtube-embed 
     video="videoID" 
+    videoid="myvideo"
     enablejsapi="true"
     >
 </ng-youtube-embed>
 ```
 
 ```javascript
-myApp.controller('myCtrl', ['$scope', function($scope) {
+myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService', function($scope, ngYoutubeEmbedService) {
     $scope.videoID = 'OPmOXJtxxoo';
 
-    
+    $scope.playVideo = function() {
+        var player = ngYoutubeEmbedService.getPlayerById('myvideo'); // Get iframe player instance
+        player.playVideo(); // Play video
+    };
 }]);
 ```
 
