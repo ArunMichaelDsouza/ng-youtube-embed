@@ -212,6 +212,7 @@ Supported value is a positive integer.
 
 #### Youtube iframe embed JS API event parameters
 
+The Youtube JS API fires events to notify your application of changes to the embedded player.
 In order to use these parameters you need to enable the Youtube js api using the ``enablejsapi`` option.
 
 Check out the Youtube JS API events reference [here](https://developers.google.com/youtube/iframe_api_reference#Events).
