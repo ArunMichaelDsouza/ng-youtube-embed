@@ -21,4 +21,8 @@ myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService',  function($scope,
         var player = ngYoutubeEmbedService.getPlayerById('stillEchoes');
         player.showVideoInfo();
     };
+
+    $scope.stateChanged = function(e) {
+        console.log(e);
+    };
 }]);

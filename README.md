@@ -35,33 +35,36 @@ npm install ng-youtube-embed --save
 
 Or, [download](https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases) the latest version and include ``ng-youtube-embed.min.js`` to your project.
 
-Add ``ngYoutubeEmbed`` as a dependency in your angular app module.
-
 <br/>
 
 ## Usage
 
-You can use the directive with any of the available Youtube player parameters.
+Add ``ngYoutubeEmbed`` as a dependency in your angular app module.
 
-Include the ``video`` parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render an iframe.
-
-Example - 
 ```javascript
 var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
-
-myApp.controller('myCtrl', ['$scope', function($scope) {
-    $scope.videoURL = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
-}]);
 ```
+
+Include the ``video`` parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render an iframe player.
+
+Example - 
+
 ```html
 <ng-youtube-embed 
-	video="videoURL" 
+    video="videoURL" 
     autoplay="true"
     color="white"
     disablekb="true"
     end="20">
 </ng-youtube-embed>
 ```
+
+```javascript
+myApp.controller('myCtrl', ['$scope', function($scope) {
+    $scope.videoURL = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
+}]);
+```
+
 Where ``videoURL`` is the scope variable containing the Youtube video URL.
 
 #### One single parameter to embed videos using URL or ID
@@ -69,6 +72,17 @@ Where ``videoURL`` is the scope variable containing the Youtube video URL.
 Works well with Youtube video IDs too. Pass in the scope variable which contains the Youtube video ID in the same ``video`` parameter.
 
 Example - 
+
+```html
+<ng-youtube-embed 
+    video="videoID" 
+    autoplay="true"
+    color="white"
+    disablekb="true"
+    end="20">
+</ng-youtube-embed>
+```
+
 ```javascript
 var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
 
@@ -76,16 +90,15 @@ myApp.controller('myCtrl', ['$scope', function($scope) {
     $scope.videoID = 'OPmOXJtxxoo';
 }]);
 ```
-```html
-<ng-youtube-embed 
-	video="videoID" 
-    autoplay="true"
-    color="white"
-    disablekb="true"
-    end="20">
-</ng-youtube-embed>
-```
 Where ``videoID`` is the scope variable containing the Youtube video ID.
+
+### With Browserify
+
+Using ``browserify`` to generate a bundle for your app ? Not a problem! Just require ``ng-youtube-embed`` in your app script and generate the bundle.
+
+```javascript
+require('ng-youtube-embed');
+```
 
 <br/>
 
@@ -93,7 +106,7 @@ Where ``videoID`` is the scope variable containing the Youtube video ID.
 
 ng-youtube-embed supports all of the available Youtube player parameters. To view the list with details, click [here](https://developers.google.com/youtube/player_parameters).
 
-#### Supported parameters
+#### Player parameters
 
 #### ``video {string}``
 This parameter specifies the scope variable containing the Youtube video URL or ID for which you want to render the iframe video player.
@@ -125,18 +138,6 @@ Supported values are : ``true`` and ``false``.
 #### ``disablekb {boolean} | Default: false``
 Setting the parameter's value to ``true`` causes the player to not respond to keyboard controls.
 Supported values are : ``true`` and ``false``.
-> Currently supported keyboard controls are: 
-
-> * Spacebar or [k]: Play / Pause
-* Arrow Left: Jump back 5 seconds in the current video
-* Arrow Right: Jump ahead 5 seconds in the current video
-* Arrow Up: Volume up
-* Arrow Down: Volume Down
-* [f]: Toggle full-screen display
-* [j]: Jump back 10 seconds in the current video
-* [l]: Jump ahead 10 seconds in the current video
-* [m]: Mute or unmute the video
-* [0-9]: Jump to a point in the video. 0 jumps to the beginning of the video, 1 jumps to the point 10% into the video, 2 jumps to the point 20% into the video, and so forth.
 
 #### ``enablejsapi {boolean} | Default: false``
 Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. 
@@ -208,6 +209,30 @@ Supported values are : ``true`` and ``false``.
 #### ``start {number}``
 This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
+
+#### Youtube iframe embed JS API event parameters
+
+In order to use these parameters you need to enable the Youtube js api using the ``enablejsapi`` option.
+
+Check out the Youtube JS API events reference [here](https://developers.google.com/youtube/iframe_api_reference#Events).
+
+#### ``onready {string}``
+This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player is ready or has finished loading.
+
+#### ``onstatechange {string}``
+This parameter specifies the scope variable containing the function, which gets fired when the state of the iframe embed player changes.
+
+#### ``onplaybackqualitychange {string}``
+This parameter specifies the scope variable containing the function, which gets fired when the playback quality of the iframe embed player changes.
+
+#### ``onplaybackratechange {string}``
+This parameter specifies the scope variable containing the function, which gets fired when the playback rate of the iframe embed player changes.
+
+#### ``onerror {string}``
+This parameter specifies the scope variable containing the function, which gets fired when an error occurrs in the iframe embed player.
+
+#### ``onapichange {string}``
+This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player starts receiving API calls.
 
 #### Deprecated parameters
 
