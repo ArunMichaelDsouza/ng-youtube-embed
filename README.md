@@ -142,7 +142,7 @@ Setting the parameter's value to ``true`` causes the player to not respond to ke
 Supported values are : ``true`` and ``false``.
 
 #### ``enablejsapi {boolean} | Default: false``
-Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#Events and Instance methods) for usage. 
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#user-content-events-and-instance-methods) for usage. 
 Supported values are : ``true`` and ``false``.
 
 #### ``end {number}``
