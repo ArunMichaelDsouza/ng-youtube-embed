@@ -233,6 +233,34 @@ This parameter specifies the scope variable containing the function, which gets 
 #### ``onapichange {string}``
 This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player starts receiving API calls.
 
+JS API events Example - 
+
+```html
+<ng-youtube-embed 
+    video="videoID" 
+    enablejsapi="true"
+    onready="playerReady"
+    onstatechange="playerStateChanged"
+    >
+</ng-youtube-embed>
+```
+
+```javascript
+myApp.controller('myCtrl', ['$scope', function($scope) {
+    $scope.videoID = 'OPmOXJtxxoo';
+
+    // Gets fired when the iframe player has finished loading
+    $scope.playerReady = function(event) {
+        console.log(event); // Event data logged
+    };
+
+    // Gets fired when the state of the iframe player changes
+    $scope.playerStateChanged = function(event) {
+        console.log(event); // Event data logged
+    };
+}]);
+```
+
 #### Deprecated parameters
 
 #### ``url``
