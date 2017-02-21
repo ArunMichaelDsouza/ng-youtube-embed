@@ -104,7 +104,7 @@ require('ng-youtube-embed');
 
 ng-youtube-embed supports all of the available Youtube player parameters. To view the list with details, click [here](https://developers.google.com/youtube/player_parameters).
 
-#### Player parameters
+### Player parameters
 
 #### ``video {string}``
 This parameter specifies the scope variable containing the Youtube video URL or ID for which you want to render the iframe video player.
@@ -116,6 +116,10 @@ Provide a value in ``px`` or ``%`` in order to render a video player with custom
 #### ``height {string} | Default: 350px``
 This parameter specifies the height of the Youtube iframe embed player.
 Provide a value in ``px`` or ``%`` in order to render a video player with custom height.
+
+#### ``videoid {string}``
+Specifies the unique video id that is used by the Youtube JS API for referencing the iframe player instance.
+See [Events](#events) for usage.
 
 #### ``autoplay {boolean} | Default: false``
 This parameter specifies whether the initial video will automatically start to play when the player loads.
@@ -208,10 +212,26 @@ Supported values are : ``true`` and ``false``.
 This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
 Supported value is a positive integer.
 
-#### Youtube iframe embed JS API event parameters
+### Deprecated parameters
+
+#### ``url``
+ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old ``url`` parameter has been deprecated in favour of the new ``video`` parameter.
+
+#### ``autohide``
+See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
+
+#### ``theme``
+See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
+
+#### ``gaming``
+ng-youtube-embed now has out of the box support for [gaming.youtube.com](https://gaming.youtube.com), there's no need to specify an extra parameter for that.
+
+<br/>
+
+## Events
 
 The Youtube JS API fires events to notify your application of changes to the embedded player.
-In order to use these parameters you need to enable the Youtube JS API using the ``enablejsapi`` option.
+In order to use these event parameters you need to enable the Youtube JS API using the ``enablejsapi`` option.
 
 Check out the Youtube JS API ``events`` reference [here](https://developers.google.com/youtube/iframe_api_reference#Events).
 
@@ -261,19 +281,23 @@ myApp.controller('myCtrl', ['$scope', function($scope) {
 }]);
 ```
 
-#### Deprecated parameters
+JS API methods usage Example - 
 
-#### ``url``
-ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old ``url`` parameter has been deprecated in favour of the new ``video`` parameter.
+```html
+<ng-youtube-embed 
+    video="videoID" 
+    enablejsapi="true"
+    >
+</ng-youtube-embed>
+```
 
-#### ``autohide``
-See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
+```javascript
+myApp.controller('myCtrl', ['$scope', function($scope) {
+    $scope.videoID = 'OPmOXJtxxoo';
 
-#### ``theme``
-See Youtube iframe player deprecation notice [here](https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015).
-
-#### ``gaming``
-ng-youtube-embed now has out of the box support for [gaming.youtube.com](https://gaming.youtube.com), there's no need to specify an extra parameter for that.
+    
+}]);
+```
 
 <br/>
 
