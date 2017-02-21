@@ -119,7 +119,7 @@ Provide a value in ``px`` or ``%`` in order to render a video player with custom
 
 #### ``videoid {string}``
 Specifies the unique video id that is used by the Youtube JS API for referencing the iframe player instance.
-See [Events](#events) for usage.
+See [Events](#events-and-instance-methods) for usage.
 
 #### ``autoplay {boolean} | Default: false``
 This parameter specifies whether the initial video will automatically start to play when the player loads.
@@ -142,7 +142,7 @@ Setting the parameter's value to ``true`` causes the player to not respond to ke
 Supported values are : ``true`` and ``false``.
 
 #### ``enablejsapi {boolean} | Default: false``
-Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#user-content-events-and-instance-methods) for usage. 
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#events-and-instance-methods) for usage. 
 Supported values are : ``true`` and ``false``.
 
 #### ``end {number}``
