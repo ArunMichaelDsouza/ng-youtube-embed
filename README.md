@@ -119,7 +119,7 @@ Provide a value in ``px`` or ``%`` in order to render a video player with custom
 
 #### ``videoid {string}``
 Specifies the unique video id that is used by the Youtube JS API for referencing the iframe player instance.
-See [Events and Instance methods](#user-content-events-and-instance-methods) for usage.
+See [Events and Player Instance](#user-content-events-and-player-instance) for usage.
 
 #### ``autoplay {boolean} | Default: false``
 This parameter specifies whether the initial video will automatically start to play when the player loads.
@@ -142,7 +142,7 @@ Setting the parameter's value to ``true`` causes the player to not respond to ke
 Supported values are : ``true`` and ``false``.
 
 #### ``enablejsapi {boolean} | Default: false``
-Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Instance methods](#user-content-events-and-instance-methods) for usage. 
+Setting the parameter's value to ``true`` enables the player to be controlled via iframe or JavaScript player API calls. See [Events and Player Instance](#user-content-events-and-player-instance) for usage. 
 Supported values are : ``true`` and ``false``.
 
 #### ``end {number}``
@@ -227,7 +227,7 @@ ng-youtube-embed now has out of the box support for [gaming.youtube.com](https:/
 
 <br/>
 
-## Events and Instance methods
+## Events and Player Instance
 
 The Youtube JS API fires events to notify your application of changes to the embedded player.
 In order to use these event parameters you need to enable the Youtube JS API using the ``enablejsapi`` option.
