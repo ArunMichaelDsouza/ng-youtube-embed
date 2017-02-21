@@ -306,6 +306,24 @@ myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService', function($scope, 
 }]);
 ```
 
+## ngYoutubeEmbedService
+
+Inject the ``ngYoutubeEmbedService`` in your controller to get access to player instances and Youtube iframe API player methods. 
+
+#### ``getPlayerById( videoID )``
+Returns the instance of the iframe embed player, for the video ID passed to this method.
+
+```javascript
+var player = ngYoutubeEmbedService.getPlayerById('myvideo'); // Returns the iframe player instance
+```
+
+#### ``getVideoIdByUrl( videoURL )``
+Returns the video ID for the Youtube video URL passed to this method.
+
+```javascript
+var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/watch?v=OPmOXJtxxoo'); // Returns the video ID for the specified video URL i.e. OPmOXJtxxoo
+```
+
 <br/>
 
 ## Contributors
