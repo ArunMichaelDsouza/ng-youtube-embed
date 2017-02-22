@@ -1,0 +1,93 @@
+/* Theme styles */
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #333;
+}
+
+a {
+	color: #007ec6;
+}
+
+.main-wrapper {
+	padding: 20px 0;
+	margin: 0;
+}
+
+.logo {
+	width: 190px;
+	height: auto;
+}
+
+.main-header {
+	font-weight: 600;
+	font-size: 2.45em;
+	margin-bottom: 20px;
+}
+
+.main-text {
+	font-size: 1.25em;
+	margin: 30px 0 10px;
+	font-weight: 400;
+}
+
+.main-quote {
+	padding: 5px;
+    font-size: 1.05em;
+}
+
+.inverted-panel {
+	background-color: #1c1c1c;
+	padding: 20px;
+	margin: 20px 0;
+}
+
+.code-box {
+	margin-bottom: 20px;
+}
+
+.code-box > code {
+	white-space: pre-line;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
