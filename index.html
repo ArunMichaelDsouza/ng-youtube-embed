@@ -1,60 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>hello</title>
+    <title>hello</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-	<p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" width="300" height="auto" alt="ng-youtube-embed icon"/></p>
-
-<h1 id="ngyoutubeembednpmversionhttpsbadgefuryiojsngyoutubeembedsvghttpsbadgefuryiojsngyoutubeembednpmdownloadshttpsimgshieldsionpmdmngyoutubeembedsvgstyleflatsquarehttpswwwnpmjscompackagengyoutubeembedlateststableversionhttpsimgshieldsiobowervngyoutubeembedsvgstyleflatsquarehttpboweriosearchqngyoutubeembed">ng-youtube-embed <a href="https://badge.fury.io/js/ng-youtube-embed"><img src="https://badge.fury.io/js/ng-youtube-embed.svg" alt="npm version" /></a> <a href="https://www.npmjs.com/package/ng-youtube-embed"><img src="https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square" alt="NPM Downloads" /></a> <a href="http://bower.io/search/?q=ng-youtube-embed"><img src="https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square" alt="Latest Stable Version" /></a></h1>
-
-<p>AngularJS module to embed Youtube videos with support for Youtube player parameters and JavaScript API for iframe embeds.</p>
-
-<blockquote>
-  <p>Superlight (less than 5KB) and easy to use! Supports Youtube video URLs and IDs. No 3rd party JS dependencies. </p>
-</blockquote>
-
-<h3 id="demooncodepenhttpcodepenioamdsouza92penynxyjv"><a href="http://codepen.io/amdsouza92/pen/yNxyJV">Demo on CodePen</a></h3>
-
-<p><br/></p>
-
-<h2 id="installation">Installation</h2>
-
-<h4 id="cdn">CDN</h4>
-
-<p>Use ng-youtube-embed directly from jsdelivr CDN</p>
-
-<pre><code class="html language-html">https://cdn.jsdelivr.net/angular.youtube-embed/1.7.7/ng-youtube-embed.min.js
+    <p><img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" width="300" height="auto" alt="ng-youtube-embed icon" /></p>
+    <h1 id="ngyoutubeembednpmversionhttpsbadgefuryiojsngyoutubeembedsvghttpsbadgefuryiojsngyoutubeembednpmdownloadshttpsimgshieldsionpmdmngyoutubeembedsvgstyleflatsquarehttpswwwnpmjscompackagengyoutubeembedlateststableversionhttpsimgshieldsiobowervngyoutubeembedsvgstyleflatsquarehttpboweriosearchqngyoutubeembed">ng-youtube-embed <a href="https://badge.fury.io/js/ng-youtube-embed"><img src="https://badge.fury.io/js/ng-youtube-embed.svg" alt="npm version" /></a> <a href="https://www.npmjs.com/package/ng-youtube-embed"><img src="https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square" alt="NPM Downloads" /></a> <a href="http://bower.io/search/?q=ng-youtube-embed"><img src="https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square" alt="Latest Stable Version" /></a></h1>
+    <p>AngularJS module to embed Youtube videos with support for Youtube player parameters and JavaScript API for iframe embeds.</p>
+    <blockquote>
+        <p>Superlight (less than 5KB) and easy to use! Supports Youtube video URLs and IDs. No 3rd party JS dependencies. </p>
+    </blockquote>
+    <h3 id="demooncodepenhttpcodepenioamdsouza92penynxyjv"><a href="http://codepen.io/amdsouza92/pen/yNxyJV">Demo on CodePen</a></h3>
+    <p>
+        <br/>
+    </p>
+    <h2 id="installation">Installation</h2>
+    <h4 id="cdn">CDN</h4>
+    <p>Use ng-youtube-embed directly from jsdelivr CDN</p>
+    <pre><code class="html language-html">https://cdn.jsdelivr.net/angular.youtube-embed/1.7.7/ng-youtube-embed.min.js
 </code></pre>
-
-<h4 id="viabower">via bower</h4>
-
-<p>You can install the package using bower. Make sure you have bower installed, then run : </p>
-
-<pre><code class="html language-html">bower install ng-youtube-embed --save
+    <h4 id="viabower">via bower</h4>
+    <p>You can install the package using bower. Make sure you have bower installed, then run : </p>
+    <pre><code class="html language-html">bower install ng-youtube-embed --save
 </code></pre>
-
-<h4 id="vianpm">via npm</h4>
-
-<pre><code class="html language-html">npm install ng-youtube-embed --save
+    <h4 id="vianpm">via npm</h4>
+    <pre><code class="html language-html">npm install ng-youtube-embed --save
 </code></pre>
-
-<p>Or, <a href="https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases">download</a> the latest version and include <code>ng-youtube-embed.min.js</code> to your project.</p>
-
-<p><br/></p>
-
-<h2 id="usage">Usage</h2>
-
-<p>Add <code>ngYoutubeEmbed</code> as a dependency in your angular app module.</p>
-
-<pre><code class="javascript language-javascript">var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
+    <p>Or, <a href="https://github.com/ArunMichaelDsouza/ng-youtube-embed/releases">download</a> the latest version and include <code>ng-youtube-embed.min.js</code> to your project.</p>
+    <p>
+        <br/>
+    </p>
+    <h2 id="usage">Usage</h2>
+    <p>Add <code>ngYoutubeEmbed</code> as a dependency in your angular app module.</p>
+    <pre><code class="javascript language-javascript">var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
 </code></pre>
-
-<p>Add the directive with the <code>video</code> parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render the iframe player.</p>
-
-<p>Example - </p>
-
-<pre><code class="html language-html">&lt;ng-youtube-embed 
+    <p>Add the directive with the <code>video</code> parameter and pass in the scope variable which contains the Youtube video URL or ID for which you want to render the iframe player.</p>
+    <p>Example - </p>
+    <pre><code class="html language-html">&lt;ng-youtube-embed 
     video="videoURL" 
     autoplay="true"
     color="white"
@@ -62,21 +49,15 @@
     end="20"&gt;
 &lt;/ng-youtube-embed&gt;
 </code></pre>
-
-<pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
+    <pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
     $scope.videoURL = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
 }]);
 </code></pre>
-
-<p>Where <code>videoURL</code> is the scope variable containing the Youtube video URL.</p>
-
-<h4 id="onesingleparametertoembedvideosusingurlorid">One single parameter to embed videos using URL or ID</h4>
-
-<p>Works well with Youtube video IDs too. Pass in the scope variable which contains the Youtube video ID in the same <code>video</code> parameter.</p>
-
-<p>Example - </p>
-
-<pre><code class="html language-html">&lt;ng-youtube-embed 
+    <p>Where <code>videoURL</code> is the scope variable containing the Youtube video URL.</p>
+    <h4 id="onesingleparametertoembedvideosusingurlorid">One single parameter to embed videos using URL or ID</h4>
+    <p>Works well with Youtube video IDs too. Pass in the scope variable which contains the Youtube video ID in the same <code>video</code> parameter.</p>
+    <p>Example - </p>
+    <pre><code class="html language-html">&lt;ng-youtube-embed 
     video="videoID" 
     autoplay="true"
     color="white"
@@ -84,227 +65,119 @@
     end="20"&gt;
 &lt;/ng-youtube-embed&gt;
 </code></pre>
-
-<pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
+    <pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
     $scope.videoID = 'OPmOXJtxxoo';
 }]);
 </code></pre>
-
-<p>Where <code>videoID</code> is the scope variable containing the Youtube video ID.</p>
-
-<h3 id="withbrowserify">With Browserify</h3>
-
-<p>Using <code>browserify</code> to generate a bundle for your app ? Not a problem! Just require <code>ng-youtube-embed</code> in your app script and generate the bundle.</p>
-
-<pre><code class="javascript language-javascript">require('ng-youtube-embed');
+    <p>Where <code>videoID</code> is the scope variable containing the Youtube video ID.</p>
+    <h3 id="withbrowserify">With Browserify</h3>
+    <p>Using <code>browserify</code> to generate a bundle for your app ? Not a problem! Just require <code>ng-youtube-embed</code> in your app script and generate the bundle.</p>
+    <pre><code class="javascript language-javascript">require('ng-youtube-embed');
 </code></pre>
-
-<p><br/></p>
-
-<h2 id="parameters">Parameters</h2>
-
-<p>ng-youtube-embed supports all of the available Youtube player parameters. To view the list with details, click <a href="https://developers.google.com/youtube/player_parameters">here</a>.</p>
-
-<h3 id="playerparameters">Player parameters</h3>
-
-<h4 id="videostring"><code>video {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the Youtube video URL or ID for which you want to render the iframe video player.</p>
-
-<h4 id="widthstringdefault500px"><code>width {string} | Default: 500px</code></h4>
-
-<p>This parameter specifies the width of the Youtube iframe embed player.
-Provide a value in <code>px</code> or <code>%</code> in order to render a video player with custom width.</p>
-
-<h4 id="heightstringdefault350px"><code>height {string} | Default: 350px</code></h4>
-
-<p>This parameter specifies the height of the Youtube iframe embed player.
-Provide a value in <code>px</code> or <code>%</code> in order to render a video player with custom height.</p>
-
-<h4 id="videoidstring"><code>videoid {string}</code></h4>
-
-<p>Specifies the unique video id that is used by the Youtube JS API for referencing the iframe player instance.
-See <a href="#user-content-events-and-player-instance">Events and Player Instance</a> for usage.</p>
-
-<h4 id="autoplaybooleandefaultfalse"><code>autoplay {boolean} | Default: false</code></h4>
-
-<p>This parameter specifies whether the initial video will automatically start to play when the player loads.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="ccloadpolicyboolean"><code>ccloadpolicy {boolean}</code></h4>
-
-<p>Setting the parameter's value to <code>true</code> causes closed captions to be shown by default, even if the user has turned captions off. The default behavior is based on user preference.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="colorstringdefaultred"><code>color {string} | Default: red</code></h4>
-
-<p>This parameter specifies the color that will be used in the player's video progress bar to highlight the amount of the video that the viewer has already seen. Supported values are : <code>red</code> and <code>white</code>.</p>
-
-<blockquote>
-  <p>Note: Setting the color parameter to <code>white</code> will disable the <code>modestbranding</code> option.</p>
-</blockquote>
-
-<h4 id="controlsbooleandefaulttrue"><code>controls {boolean} | Default: true</code></h4>
-
-<p>This parameter indicates whether the video player controls are displayed.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="disablekbbooleandefaultfalse"><code>disablekb {boolean} | Default: false</code></h4>
-
-<p>Setting the parameter's value to <code>true</code> causes the player to not respond to keyboard controls.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="enablejsapibooleandefaultfalse"><code>enablejsapi {boolean} | Default: false</code></h4>
-
-<p>Setting the parameter's value to <code>true</code> enables the player to be controlled via iframe or JavaScript player API calls. See <a href="#user-content-events-and-player-instance">Events and Player Instance</a> for usage. 
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="endnumber"><code>end {number}</code></h4>
-
-<p>This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. If you have a playlist, then this parameter will only work for the first video.
-Supported value is a positive integer.</p>
-
-<h4 id="fsbooleandefaulttrue"><code>fs {boolean} | Default: true</code></h4>
-
-<p>Setting this parameter to <code>false</code> prevents the fullscreen button from displaying in the player.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="hlstring"><code>hl {string}</code></h4>
-
-<p>Sets the player's interface language. 
-The parameter value is an <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1 two-letter language code</a> or a fully specified locale. For example, <code>fr</code> and <code>fr-ca</code> are both valid values.</p>
-
-<blockquote>
-  <p>Note: The interface language is used for tooltips in the player and also affects the default caption track. Note that Youtube might select a different caption track language for a particular user based on the user's individual language preferences and the availability of caption tracks.</p>
-</blockquote>
-
-<h4 id="ivloadpolicybooleandefaulttrue"><code>ivloadpolicy {boolean} | Default: true</code></h4>
-
-<p>Setting the parameter's value to <code>false</code> causes video annotations to be hidden by default.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="listtypestring"><code>listtype {string}</code></h4>
-
-<p>This parameter, in conjunction with the <code>list</code> parameter, identifies the content that will load in the player. Valid parameter values are <code>playlist</code>, <code>search</code>, and <code>user_uploads</code>.</p>
-
-<blockquote>
-  <p>Note: If you specify values for the <code>list</code> and <code>listType</code> parameters, then you dont need to specify a video URL or ID in the the <code>video</code> parameter.</p>
-</blockquote>
-
-<h4 id="liststring"><code>list {string}</code></h4>
-
-<p>This parameter, in conjunction with the <code>listtype</code> parameter, identifies the content that will load in the player.</p>
-
-<p>If the <code>listtype</code> parameter value is <code>search</code>, then the <code>list</code> parameter value specifies the search query.</p>
-
-<p>If the <code>listtype</code> parameter value is <code>user_uploads</code>, then the <code>list</code> parameter value identifies the Youtube channel whose uploaded videos will be loaded.</p>
-
-<p>If the <code>listtype</code> parameter value is <code>playlist</code>, then the <code>list</code> parameter value specifies a Youtube playlist ID in the parameter value.</p>
-
-<blockquote>
-  <p>Note: If you specify values for the <code>list</code> and <code>listType</code> parameters, then you dont need to specify a video URL or ID in the the <code>video</code> parameter.</p>
-</blockquote>
-
-<h4 id="loopbooleandefaultvaluefalse"><code>loop {boolean} | Default value: false</code></h4>
-
-<p>This parameter only works when used in conjunction with the <code>playlist</code> parameter. It specifies whether to loop the entire playlist or not.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<blockquote>
-  <p>Note: To loop a single video, set the <code>loop</code> parameter value to <code>true</code> and set the <code>playlist</code> parameter value to the same video URL or ID already specified in the <code>video</code> parameter.</p>
-</blockquote>
-
-<h4 id="modestbrandingbooleandefaultfalse"><code>modestbranding {boolean} | Default: false</code></h4>
-
-<p>This parameter lets you use a Youtube player that does not show a Youtube logo. Set the parameter value to <code>true</code> to prevent the Youtube logo from displaying in the control bar.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<blockquote>
-  <p>Note: A small YouTube text label will still display in the upper-right corner of a paused video when the user's mouse pointer hovers over the player.</p>
-</blockquote>
-
-<h4 id="originstring"><code>origin {string}</code></h4>
-
-<p>This parameter provides an extra security measure for the iframe API and is only supported for iframe embeds. If you are using the iframe API, which means you are setting the <code>enablejsapi</code> parameter value to <code>true</code>, you should always specify your domain as the <code>origin</code> parameter value.</p>
-
-<h4 id="playliststring"><code>playlist {string}</code></h4>
-
-<p>This parameter specifies a comma-separated list of video URLs or IDs to play.</p>
-
-<h4 id="playsinlinebooleandefaultfalse"><code>playsinline {boolean} | Default: false</code></h4>
-
-<p>This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="relbooleandefaulttrue"><code>rel {boolean} | Default: true</code></h4>
-
-<p>This parameter indicates whether the player should show related videos when playback of the initial video ends.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="showinfobooleandefaulttrue"><code>showinfo {boolean} | Default: true</code></h4>
-
-<p>Setting the parameter's value to <code>false</code> causes the player to not display information like the video title and uploader before the video starts playing.
-Supported values are : <code>true</code> and <code>false</code>.</p>
-
-<h4 id="startnumber"><code>start {number}</code></h4>
-
-<p>This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video.
-Supported value is a positive integer.</p>
-
-<h3 id="deprecatedparameters">Deprecated parameters</h3>
-
-<h4 id="url"><code>url</code></h4>
-
-<p>ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old <code>url</code> parameter has been deprecated in favour of the new <code>video</code> parameter.</p>
-
-<h4 id="autohide"><code>autohide</code></h4>
-
-<p>See Youtube iframe player deprecation notice <a href="https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015">here</a>.</p>
-
-<h4 id="theme"><code>theme</code></h4>
-
-<p>See Youtube iframe player deprecation notice <a href="https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015">here</a>.</p>
-
-<h4 id="gaming"><code>gaming</code></h4>
-
-<p>ng-youtube-embed now has out of the box support for <a href="https://gaming.youtube.com">gaming.youtube.com</a>, there's no need to specify an extra parameter for that.</p>
-
-<p><br/></p>
-
-<h2 id="eventsandplayerinstance">Events and Player Instance</h2>
-
-<p>The Youtube JS API fires events to notify your application of changes to the embedded player.
-In order to use these event parameters you need to enable the Youtube JS API using the <code>enablejsapi</code> option.</p>
-
-<p>Check out the Youtube JS API <code>events</code> reference <a href="https://developers.google.com/youtube/iframe_api_reference#Events">here</a>.</p>
-
-<h4 id="onreadystring"><code>onready {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player is ready or has finished loading.</p>
-
-<h4 id="onstatechangestring"><code>onstatechange {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when the state of the iframe embed player changes.</p>
-
-<h4 id="onplaybackqualitychangestring"><code>onplaybackqualitychange {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when the playback quality of the iframe embed player changes.</p>
-
-<h4 id="onplaybackratechangestring"><code>onplaybackratechange {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when the playback rate of the iframe embed player changes.</p>
-
-<h4 id="onerrorstring"><code>onerror {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when an error occurrs in the iframe embed player.</p>
-
-<h4 id="onapichangestring"><code>onapichange {string}</code></h4>
-
-<p>This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player starts receiving API calls.</p>
-
-<h3 id="jsapieventsexample">JS API events example -</h3>
-
-<pre><code class="html language-html">&lt;ng-youtube-embed 
+    <p>
+        <br/>
+    </p>
+    <h2 id="parameters">Parameters</h2>
+    <p>ng-youtube-embed supports all of the available Youtube player parameters. To view the list with details, click <a href="https://developers.google.com/youtube/player_parameters">here</a>.</p>
+    <h3 id="playerparameters">Player parameters</h3>
+    <h4 id="videostring"><code>video {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the Youtube video URL or ID for which you want to render the iframe video player.</p>
+    <h4 id="widthstringdefault500px"><code>width {string} | Default: 500px</code></h4>
+    <p>This parameter specifies the width of the Youtube iframe embed player. Provide a value in <code>px</code> or <code>%</code> in order to render a video player with custom width.</p>
+    <h4 id="heightstringdefault350px"><code>height {string} | Default: 350px</code></h4>
+    <p>This parameter specifies the height of the Youtube iframe embed player. Provide a value in <code>px</code> or <code>%</code> in order to render a video player with custom height.</p>
+    <h4 id="videoidstring"><code>videoid {string}</code></h4>
+    <p>Specifies the unique video id that is used by the Youtube JS API for referencing the iframe player instance. See <a href="#user-content-events-and-player-instance">Events and Player Instance</a> for usage.</p>
+    <h4 id="autoplaybooleandefaultfalse"><code>autoplay {boolean} | Default: false</code></h4>
+    <p>This parameter specifies whether the initial video will automatically start to play when the player loads. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="ccloadpolicyboolean"><code>ccloadpolicy {boolean}</code></h4>
+    <p>Setting the parameter's value to <code>true</code> causes closed captions to be shown by default, even if the user has turned captions off. The default behavior is based on user preference. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="colorstringdefaultred"><code>color {string} | Default: red</code></h4>
+    <p>This parameter specifies the color that will be used in the player's video progress bar to highlight the amount of the video that the viewer has already seen. Supported values are : <code>red</code> and <code>white</code>.</p>
+    <blockquote>
+        <p>Note: Setting the color parameter to <code>white</code> will disable the <code>modestbranding</code> option.</p>
+    </blockquote>
+    <h4 id="controlsbooleandefaulttrue"><code>controls {boolean} | Default: true</code></h4>
+    <p>This parameter indicates whether the video player controls are displayed. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="disablekbbooleandefaultfalse"><code>disablekb {boolean} | Default: false</code></h4>
+    <p>Setting the parameter's value to <code>true</code> causes the player to not respond to keyboard controls. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="enablejsapibooleandefaultfalse"><code>enablejsapi {boolean} | Default: false</code></h4>
+    <p>Setting the parameter's value to <code>true</code> enables the player to be controlled via iframe or JavaScript player API calls. See <a href="#user-content-events-and-player-instance">Events and Player Instance</a> for usage. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="endnumber"><code>end {number}</code></h4>
+    <p>This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. If you have a playlist, then this parameter will only work for the first video. Supported value is a positive integer.</p>
+    <h4 id="fsbooleandefaulttrue"><code>fs {boolean} | Default: true</code></h4>
+    <p>Setting this parameter to <code>false</code> prevents the fullscreen button from displaying in the player. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="hlstring"><code>hl {string}</code></h4>
+    <p>Sets the player's interface language. The parameter value is an <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1 two-letter language code</a> or a fully specified locale. For example, <code>fr</code> and <code>fr-ca</code> are both valid values.</p>
+    <blockquote>
+        <p>Note: The interface language is used for tooltips in the player and also affects the default caption track. Note that Youtube might select a different caption track language for a particular user based on the user's individual language preferences and the availability of caption tracks.</p>
+    </blockquote>
+    <h4 id="ivloadpolicybooleandefaulttrue"><code>ivloadpolicy {boolean} | Default: true</code></h4>
+    <p>Setting the parameter's value to <code>false</code> causes video annotations to be hidden by default. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="listtypestring"><code>listtype {string}</code></h4>
+    <p>This parameter, in conjunction with the <code>list</code> parameter, identifies the content that will load in the player. Valid parameter values are <code>playlist</code>, <code>search</code>, and <code>user_uploads</code>.</p>
+    <blockquote>
+        <p>Note: If you specify values for the <code>list</code> and <code>listType</code> parameters, then you dont need to specify a video URL or ID in the the <code>video</code> parameter.</p>
+    </blockquote>
+    <h4 id="liststring"><code>list {string}</code></h4>
+    <p>This parameter, in conjunction with the <code>listtype</code> parameter, identifies the content that will load in the player.</p>
+    <p>If the <code>listtype</code> parameter value is <code>search</code>, then the <code>list</code> parameter value specifies the search query.</p>
+    <p>If the <code>listtype</code> parameter value is <code>user_uploads</code>, then the <code>list</code> parameter value identifies the Youtube channel whose uploaded videos will be loaded.</p>
+    <p>If the <code>listtype</code> parameter value is <code>playlist</code>, then the <code>list</code> parameter value specifies a Youtube playlist ID in the parameter value.</p>
+    <blockquote>
+        <p>Note: If you specify values for the <code>list</code> and <code>listType</code> parameters, then you dont need to specify a video URL or ID in the the <code>video</code> parameter.</p>
+    </blockquote>
+    <h4 id="loopbooleandefaultvaluefalse"><code>loop {boolean} | Default value: false</code></h4>
+    <p>This parameter only works when used in conjunction with the <code>playlist</code> parameter. It specifies whether to loop the entire playlist or not. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <blockquote>
+        <p>Note: To loop a single video, set the <code>loop</code> parameter value to <code>true</code> and set the <code>playlist</code> parameter value to the same video URL or ID already specified in the <code>video</code> parameter.</p>
+    </blockquote>
+    <h4 id="modestbrandingbooleandefaultfalse"><code>modestbranding {boolean} | Default: false</code></h4>
+    <p>This parameter lets you use a Youtube player that does not show a Youtube logo. Set the parameter value to <code>true</code> to prevent the Youtube logo from displaying in the control bar. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <blockquote>
+        <p>Note: A small YouTube text label will still display in the upper-right corner of a paused video when the user's mouse pointer hovers over the player.</p>
+    </blockquote>
+    <h4 id="originstring"><code>origin {string}</code></h4>
+    <p>This parameter provides an extra security measure for the iframe API and is only supported for iframe embeds. If you are using the iframe API, which means you are setting the <code>enablejsapi</code> parameter value to <code>true</code>, you should always specify your domain as the <code>origin</code> parameter value.</p>
+    <h4 id="playliststring"><code>playlist {string}</code></h4>
+    <p>This parameter specifies a comma-separated list of video URLs or IDs to play.</p>
+    <h4 id="playsinlinebooleandefaultfalse"><code>playsinline {boolean} | Default: false</code></h4>
+    <p>This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="relbooleandefaulttrue"><code>rel {boolean} | Default: true</code></h4>
+    <p>This parameter indicates whether the player should show related videos when playback of the initial video ends. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="showinfobooleandefaulttrue"><code>showinfo {boolean} | Default: true</code></h4>
+    <p>Setting the parameter's value to <code>false</code> causes the player to not display information like the video title and uploader before the video starts playing. Supported values are : <code>true</code> and <code>false</code>.</p>
+    <h4 id="startnumber"><code>start {number}</code></h4>
+    <p>This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. If you have a playlist, then this parameter will only work for the first video. Supported value is a positive integer.</p>
+    <h3 id="deprecatedparameters">Deprecated parameters</h3>
+    <h4 id="url"><code>url</code></h4>
+    <p>ng-youtube-embed now supports Youtube video URLs as well as IDs, so the old <code>url</code> parameter has been deprecated in favour of the new <code>video</code> parameter.</p>
+    <h4 id="autohide"><code>autohide</code></h4>
+    <p>See Youtube iframe player deprecation notice <a href="https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015">here</a>.</p>
+    <h4 id="theme"><code>theme</code></h4>
+    <p>See Youtube iframe player deprecation notice <a href="https://developers.google.com/youtube/player_parameters#release_notes_08_19_2015">here</a>.</p>
+    <h4 id="gaming"><code>gaming</code></h4>
+    <p>ng-youtube-embed now has out of the box support for <a href="https://gaming.youtube.com">gaming.youtube.com</a>, there's no need to specify an extra parameter for that.</p>
+    <p>
+        <br/>
+    </p>
+    <h2 id="eventsandplayerinstance">Events and Player Instance</h2>
+    <p>The Youtube JS API fires events to notify your application of changes to the embedded player. In order to use these event parameters you need to enable the Youtube JS API using the <code>enablejsapi</code> option.</p>
+    <p>Check out the Youtube JS API <code>events</code> reference <a href="https://developers.google.com/youtube/iframe_api_reference#Events">here</a>.</p>
+    <h4 id="onreadystring"><code>onready {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player is ready or has finished loading.</p>
+    <h4 id="onstatechangestring"><code>onstatechange {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when the state of the iframe embed player changes.</p>
+    <h4 id="onplaybackqualitychangestring"><code>onplaybackqualitychange {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when the playback quality of the iframe embed player changes.</p>
+    <h4 id="onplaybackratechangestring"><code>onplaybackratechange {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when the playback rate of the iframe embed player changes.</p>
+    <h4 id="onerrorstring"><code>onerror {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when an error occurrs in the iframe embed player.</p>
+    <h4 id="onapichangestring"><code>onapichange {string}</code></h4>
+    <p>This parameter specifies the scope variable containing the function, which gets fired when the iframe embed player starts receiving API calls.</p>
+    <h3 id="jsapieventsexample">JS API events example -</h3>
+    <pre><code class="html language-html">&lt;ng-youtube-embed 
     video="videoID" 
     enablejsapi="true"
     onready="playerReady"
@@ -312,8 +185,7 @@ In order to use these event parameters you need to enable the Youtube JS API usi
     &gt;
 &lt;/ng-youtube-embed&gt;
 </code></pre>
-
-<pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
+    <pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', function($scope) {
     $scope.videoID = 'OPmOXJtxxoo';
 
     // Gets fired when the iframe player has finished loading
@@ -327,22 +199,17 @@ In order to use these event parameters you need to enable the Youtube JS API usi
     };
 }]);
 </code></pre>
-
-<h3 id="jsapiplayerinstanceexample">JS API player instance example -</h3>
-
-<p>You can get access to your iframe player instance by specifying the <code>videoid</code> parameter and injecting <code>ngYoutubeEmbedService</code> in your controller.</p>
-
-<p>For more information on the iframe API and how to use it, see the <a href="https://developers.google.com/youtube/iframe_api_reference">iframe API documentation</a></p>
-
-<pre><code class="html language-html">&lt;ng-youtube-embed 
+    <h3 id="jsapiplayerinstanceexample">JS API player instance example -</h3>
+    <p>You can get access to your iframe player instance by specifying the <code>videoid</code> parameter and injecting <code>ngYoutubeEmbedService</code> in your controller.</p>
+    <p>For more information on the iframe API and how to use it, see the <a href="https://developers.google.com/youtube/iframe_api_reference">iframe API documentation</a></p>
+    <pre><code class="html language-html">&lt;ng-youtube-embed 
     video="videoID" 
     videoid="myvideo"
     enablejsapi="true"
     &gt;
 &lt;/ng-youtube-embed&gt;
 </code></pre>
-
-<pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService', function($scope, ngYoutubeEmbedService) {
+    <pre><code class="javascript language-javascript">myApp.controller('myCtrl', ['$scope', 'ngYoutubeEmbedService', function($scope, ngYoutubeEmbedService) {
     $scope.videoID = 'OPmOXJtxxoo';
 
     $scope.playVideo = function() {
@@ -351,51 +218,36 @@ In order to use these event parameters you need to enable the Youtube JS API usi
     };
 }]);
 </code></pre>
-
-<h2 id="ngyoutubeembedservice">ngYoutubeEmbedService</h2>
-
-<p>Inject the <code>ngYoutubeEmbedService</code> in your controller to get access to player instances and Youtube iframe API player methods. </p>
-
-<blockquote>
-  <p>Note: The service methods are only available once the <code>onYouTubeIframeAPIReady</code> event has been fired after initialising the iframe embed player.</p>
-</blockquote>
-
-<h4 id="getplayerbyidvideoid"><code>getPlayerById( videoID )</code></h4>
-
-<p>Returns the instance of the iframe embed player, for the video ID passed to this method.</p>
-
-<pre><code class="javascript language-javascript">var player = ngYoutubeEmbedService.getPlayerById('myvideo'); // Returns the iframe player instance
+    <h2 id="ngyoutubeembedservice">ngYoutubeEmbedService</h2>
+    <p>Inject the <code>ngYoutubeEmbedService</code> in your controller to get access to player instances and Youtube iframe API player methods. </p>
+    <blockquote>
+        <p>Note: The service methods are only available once the <code>onYouTubeIframeAPIReady</code> event has been fired after initialising the iframe embed player.</p>
+    </blockquote>
+    <h4 id="getplayerbyidvideoid"><code>getPlayerById( videoID )</code></h4>
+    <p>Returns the instance of the iframe embed player, for the video ID passed to this method.</p>
+    <pre><code class="javascript language-javascript">var player = ngYoutubeEmbedService.getPlayerById('myvideo'); // Returns the iframe player instance
 </code></pre>
-
-<h4 id="getvideoidbyurlvideourl"><code>getVideoIdByUrl( videoURL )</code></h4>
-
-<p>Returns the video ID for the Youtube video URL passed to this method.</p>
-
-<pre><code class="javascript language-javascript">var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/watch?v=OPmOXJtxxoo'); // Returns the video ID for the specified video URL i.e. OPmOXJtxxoo
+    <h4 id="getvideoidbyurlvideourl"><code>getVideoIdByUrl( videoURL )</code></h4>
+    <p>Returns the video ID for the Youtube video URL passed to this method.</p>
+    <pre><code class="javascript language-javascript">var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/watch?v=OPmOXJtxxoo'); // Returns the video ID for the specified video URL i.e. OPmOXJtxxoo
 </code></pre>
-
-<p><br/></p>
-
-<h2 id="contributors">Contributors</h2>
-
-<ul>
-<li><a href="https://github.com/fabianVeliz">Fabián Horacio Veliz</a></li>
-
-<li><a href="https://github.com/gsalgadotoledo">Gustavo Salgado</a></li>
-</ul>
-
-<p><br/></p>
-
-<h2 id="license">License</h2>
-
-<p>MIT Licensed</p>
-
-<p>Copyright (c) 2015 Arun Michael Dsouza (amdsouza92@gmail.com)</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+    <p>
+        <br/>
+    </p>
+    <h2 id="contributors">Contributors</h2>
+    <ul>
+        <li><a href="https://github.com/fabianVeliz">Fabián Horacio Veliz</a></li>
+        <li><a href="https://github.com/gsalgadotoledo">Gustavo Salgado</a></li>
+    </ul>
+    <p>
+        <br/>
+    </p>
+    <h2 id="license">License</h2>
+    <p>MIT Licensed</p>
+    <p>Copyright (c) 2015 Arun Michael Dsouza (amdsouza92@gmail.com)</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </body>
+
 </html>
