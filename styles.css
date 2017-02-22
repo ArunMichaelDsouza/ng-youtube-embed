@@ -46,14 +46,28 @@ a {
 	margin: 20px 0;
 }
 
-.code-box {
+pre {
 	margin-bottom: 20px;
 }
 
-.code-box > code {
-	white-space: pre-line;
+h2 {
+	font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    margin: 0 0 20px;
 }
 
+h4 {
+	margin-top: 20px;
+}
+
+.github-ribbon {
+		  position: fixed; 
+		  z-index: 1000; 
+		  top: 0; 
+		  right: 0; 
+		  border: 0;
+		}
 
 
 
