@@ -178,6 +178,8 @@ If the ``listtype`` parameter value is ``playlist``, then the ``list`` parameter
 
 > Note: If you specify values for the ``list`` and ``listType`` parameters, then you dont need to specify a video URL or ID in the the ``video`` parameter.
 
+> You need at least `400px` of width for your youtube embed player in order to render the list section properly.
+
 #### ``loop {boolean} | Default value: false``
 This parameter only works when used in conjunction with the ``playlist`` parameter. It specifies whether to loop the entire playlist or not.
 Supported values are : ``true`` and ``false``.
@@ -194,6 +196,8 @@ This parameter provides an extra security measure for the iframe API and is only
 
 #### ``playlist {string}``
 This parameter specifies a comma-separated list of video URLs or IDs to play.
+
+> Note: You need at least `400px` of width for your youtube embed player in order to render the playlist section properly.
 
 #### ``playsinline {boolean} | Default: false``
 This parameter controls whether videos play inline or fullscreen in an HTML5 player on iOS.
