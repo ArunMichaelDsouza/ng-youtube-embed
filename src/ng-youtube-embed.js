@@ -87,7 +87,7 @@
         this.getVideoIdByUrl = function(url) {
 
             // Reset youtube video id regex when gaming.youtube url is found and vice versa
-            var ytVideoRegex = url.includes('gaming') ? YOUTUBE_VIDEO_ID_REGEX_GAMING : YOUTUBE_VIDEO_ID_REGEX,
+            var ytVideoRegex = (url.indexOf('gaming') !== -1) ? YOUTUBE_VIDEO_ID_REGEX_GAMING : YOUTUBE_VIDEO_ID_REGEX,
                 id = url.match(ytVideoRegex);
 
             return id !== null ? id[1] : url;
