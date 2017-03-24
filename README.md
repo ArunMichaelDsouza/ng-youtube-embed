@@ -16,7 +16,7 @@ AngularJS module to embed Youtube videos with support for Youtube player paramet
 Use ng-youtube-embed directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/angular.youtube-embed/1.7.8/ng-youtube-embed.min.js
+https://cdn.jsdelivr.net/angular.youtube-embed/1.7.9/ng-youtube-embed.min.js
 ```
 
 #### via bower
@@ -336,6 +336,7 @@ var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/wa
 
 - [Fabián Horacio Veliz](https://github.com/fabianVeliz)
 - [Gustavo Salgado](https://github.com/gsalgadotoledo)
+- [Pseudo-Nym](https://github.com/Pseudo-Nym)
 
 <br/>
 
