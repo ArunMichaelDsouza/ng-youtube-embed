@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" width="300" height="auto" alt="ng-youtube-embed icon"/>
 
-# ng-youtube-embed [![npm version](https://badge.fury.io/js/ng-youtube-embed.svg)](https://badge.fury.io/js/ng-youtube-embed) [![NPM Downloads](https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square)](https://www.npmjs.com/package/ng-youtube-embed) [![Latest Stable Version](https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square)](http://bower.io/search/?q=ng-youtube-embed)
+# ng-youtube-embed [![npm version](https://badge.fury.io/js/ng-youtube-embed.svg)](https://badge.fury.io/js/ng-youtube-embed) [![NPM Downloads](https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square)](https://www.npmjs.com/package/ng-youtube-embed) [![Latest Stable Version](https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square)](http://bower.io/search/?q=ng-youtube-embed) [![](https://data.jsdelivr.com/v1/package/npm/ng-youtube-embed/badge)](https://www.jsdelivr.com/package/npm/ng-youtube-embed)
 
 AngularJS module to embed Youtube videos with support for Youtube player parameters and JavaScript API for iframe embeds.
 > Superlight (less than 5KB) and easy to use! Supports Youtube video URLs and IDs. No 3rd party JS dependencies. 
@@ -16,7 +16,7 @@ AngularJS module to embed Youtube videos with support for Youtube player paramet
 Use ng-youtube-embed directly from jsdelivr CDN
 
 ```html
-https://cdn.jsdelivr.net/npm/ng-youtube-embed@1.7.10/build/ng-youtube-embed.min.js
+https://cdn.jsdelivr.net/npm/ng-youtube-embed@1.7.11/build/ng-youtube-embed.min.js
 ```
 
 #### via bower
