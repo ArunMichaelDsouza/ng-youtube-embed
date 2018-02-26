@@ -41,8 +41,43 @@
     // Function to generate iframe embed player template
     function generateEmbedIframeTemplate(options, scope, videoId) {
         var youtubeVideoId = videoId ? videoId : '';
-
-        return '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&iv_load_policy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '&origin=' + options.origin + '" frameborder="0" allowfullscreen></iframe>';
+        /**
+         * Modified
+         * To set the default Origin
+         */
+        if(!options.origin){
+            var protocol = location.protocol;
+            var slashes = protocol.concat("//");
+            var host = slashes.concat(window.location.hostname);
+            options.origin = host;
+        }
+        /**
+         * Modified
+         * To sanitize the URL parameters
+         * @type String
+         */
+        var urlParams = 'enablejsapi=' + options.enablejsapi + '&autoplay=' + options.autoplay + '&cc_load_policy=' + options.ccloadpolicy + '&color=' + options.color + '&controls=' + options.controls + '&disablekb=' + options.disablekb + '&end=' + options.end + '&fs=' + options.fs + '&hl=' + options.hl + '&iv_load_policy=' + options.ivloadpolicy + '&playlist=' + scope.playlistArray + '&playsinline=' + options.playsinline + '&rel=' + options.rel + '&showinfo=' + options.showinfo + '&start=' + options.start + '&modestbranding=' + options.modestbranding + '&loop=' + options.loop + '&listType=' + options.listType + '&list=' + options.list + '&origin=' + options.origin ;
+        urlParams = urlParams.replace(/([a-zA-Z_]+=&)/g,'').replace(/&$/,'').replace(/([a-zA-Z_]+=$)/g,'');
+        /**
+         * Modified
+         * To forcefully add the event listners after tab switching/using ng-if directive
+         */
+        var onLoadEvent = '';
+        if(window.onNgYtIframeLoad){
+            onLoadEvent = 'onLoad="onNgYtIframeLoad()"'; 
+        }
+        var iFrame = '<iframe id="' + options.videoid + '" width="' + options.width + '" height="' + options.height + '" src="https://www.youtube.com/embed/' + youtubeVideoId + '?' + urlParams + '" frameborder="0" allowfullscreen ' + onLoadEvent + '></iframe>';
+        if(!window.onNgYtIframeLoad){
+            /**
+             * Modified
+             * Event was getting triggered automaticaly for the first time, 
+             * By using this function we are externaly triggering the event
+             */
+            window.onNgYtIframeLoad = function(){
+                window.onYouTubeIframeAPIReady();
+            }
+        }
+        return iFrame;
     }
 
     // Function to render iframe embed player template
@@ -179,15 +214,32 @@
                         if (videoId === options.videoid) {
 
                             // Create youtube iframe embed video player instance and attach relevant events
+                            /**
+                             * Modified
+                             * To remove the errors in console if events are undefined
+                             */
+                            var events  = {};
+                            if(scope.onready){
+                                events['onReady']=scope.onready;
+                            }
+                            if(scope.onstatechange){
+                                events['onStateChange']=scope.onstatechange;
+                            }
+                            if(scope.onplaybackqualitychange){
+                                events['onPlaybackQualityChange']=scope.onplaybackqualitychange;
+                            }
+                            if(scope.onplaybackratechange){
+                                events['onPlaybackRateChange']=scope.onplaybackratechange;
+                            }
+                            if(scope.onerror){
+                                events['onError']=scope.onerror;
+                            }
+                            if(scope.onapichange){
+                                events['onApiChange']=scope.onapichange;
+                            }
+                            
                             var player = new YT.Player(videoId, {
-                                events: {
-                                    'onReady': scope.onready,
-                                    'onStateChange': scope.onstatechange,
-                                    'onPlaybackQualityChange': scope.onplaybackqualitychange,
-                                    'onPlaybackRateChange': scope.onplaybackratechange,
-                                    'onError': scope.onerror,
-                                    'onApiChange': scope.onapichange
-                                }
+                                events: events
                                 // All available youtube iframe embed player events - https://developers.google.com/youtube/iframe_api_reference#Events
                             });
 
