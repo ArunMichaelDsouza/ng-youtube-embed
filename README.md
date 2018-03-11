@@ -258,9 +258,12 @@ This parameter specifies the scope variable containing the function, which gets 
 
 ### JS API events example - 
 
+The ``videoid`` parameter is required here.
+
 ```html
 <ng-youtube-embed 
     video="videoID" 
+    videoid="myvideo"
     enablejsapi="true"
     onready="playerReady"
     onstatechange="playerStateChanged"
