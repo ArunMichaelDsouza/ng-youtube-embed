@@ -1,11 +1,11 @@
 /*
-    ng-youtube-embed v1.7.12
+    ng-youtube-embed v1.7.13
     Copyright (c) 2015 Arun Michael Dsouza (amdsouza92@gmail.com)
     Licence: MIT
     Demo on CodePen - http://codepen.io/amdsouza92/pen/yNxyJV
 */
 
-(function() {
+(function () {
     'use strict';
 
     // ng-youtube-embed main module
@@ -58,12 +58,12 @@
 
 
     // ng-youtube-embed events + utils service
-    ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function($window, $rootScope) {
+    ngYoutubeEmbed.service('ngYoutubeEmbedService', ['$window', '$rootScope', function ($window, $rootScope) {
 
         // Function to set ready state when youtube iframe embed api has been loaded
-        this.setReadyState = function() {
-            $window.onYouTubeIframeAPIReady = function() {
-                VIDEO_IDS.forEach(function(id) {
+        this.setReadyState = function () {
+            $window.onYouTubeIframeAPIReady = function () {
+                VIDEO_IDS.forEach(function (id) {
 
                     // Emit youtube iframe embed api load event
                     $rootScope.$emit('youtubeIframeEmbedApiLoaded', id);
@@ -74,17 +74,17 @@
         var videoPlayers = [];
 
         // New video player addition event listener
-        $rootScope.$on('addNewPlayer', function(event, args) {
+        $rootScope.$on('addNewPlayer', function (event, args) {
             videoPlayers[args.id] = args.player;
         });
 
         // Function to return iframe player instance based on video id
-        this.getPlayerById = function(id) {
+        this.getPlayerById = function (id) {
             return videoPlayers[id];
         };
 
         // Function to get youtube video id by url
-        this.getVideoIdByUrl = function(url) {
+        this.getVideoIdByUrl = function (url) {
 
             // Reset youtube video id regex when gaming.youtube url is found and vice versa
             var ytVideoRegex = (url.indexOf('gaming') !== -1) ? YOUTUBE_VIDEO_ID_REGEX_GAMING : YOUTUBE_VIDEO_ID_REGEX,
@@ -97,7 +97,7 @@
 
 
     // ng-youtube-embed directive
-    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', 'ngYoutubeEmbedService', '$rootScope', function($sce, ngYoutubeEmbedService, $rootScope) {
+    ngYoutubeEmbed.directive('ngYoutubeEmbed', ['$sce', 'ngYoutubeEmbedService', '$rootScope', function ($sce, ngYoutubeEmbedService, $rootScope) {
         return {
             restrict: 'E',
             template: '<div ng-bind-html="youtubeEmbedFrame"></div>',
@@ -133,7 +133,7 @@
                 list: '@',
                 origin: '@'
             },
-            link: function(scope, elem, attr) {
+            link: function (scope, elem, attr) {
 
                 // Remove id attribute from directive wrapper element
                 elem[0].removeAttribute('id');
@@ -175,7 +175,7 @@
 
                 // Listen to youtubeIframeEmbedApiLoaded event and use youtube iframe embed api to create video player
                 if (options.enablejsapi) {
-                    $rootScope.$on('youtubeIframeEmbedApiLoaded', function(event, videoId) {
+                    $rootScope.$on('youtubeIframeEmbedApiLoaded', function (event, videoId) {
                         if (videoId === options.videoid) {
 
                             // Create youtube iframe embed video player instance and attach relevant events
@@ -236,7 +236,7 @@
                 }
 
                 // Update iframe when video parameter changes
-                scope.$watch('video', function(newVal) {
+                scope.$watch('video', function (newVal) {
                     if (newVal) {
 
                         // Saving id for youtube video link
