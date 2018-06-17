@@ -337,9 +337,8 @@ var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/wa
 
 ## Contributors
 
-- [Fabián Horacio Veliz](https://github.com/fabianVeliz)
-- [Gustavo Salgado](https://github.com/gsalgadotoledo)
-- [Pseudo-Nym](https://github.com/Pseudo-Nym)
+| [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/5731909" width="100px;"/><br /><sub><b>Fabián Horacio Veliz</b></sub>](https://github.com/fabianvelizok)<br />| [<img src="https://avatars1.githubusercontent.com/u/22397189" width="100px;"/><br /><sub><b>Gustavo Salgado (Globant)</b></sub>](https://github.com/gustavo-globant)<br />| [<img src="https://avatars2.githubusercontent.com/u/2752314" width="100px;"/><br /><sub><b>Nym</b></sub>](https://github.com/Pseudo-Nym)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> |
+| :---: | :---: | :---: | :---: | :---: |
 
 <br/>
 
