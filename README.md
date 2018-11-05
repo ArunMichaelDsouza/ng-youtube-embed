@@ -337,8 +337,8 @@ var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/wa
 
 ## Contributors
 
-| [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/5731909" width="100px;"/><br /><sub><b>Fabián Horacio Veliz</b></sub>](https://github.com/fabianvelizok)<br />| [<img src="https://avatars1.githubusercontent.com/u/22397189" width="100px;"/><br /><sub><b>Gustavo Salgado (Globant)</b></sub>](https://github.com/gustavo-globant)<br />| [<img src="https://avatars2.githubusercontent.com/u/2752314" width="100px;"/><br /><sub><b>Nym</b></sub>](https://github.com/Pseudo-Nym)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> |
-| :---: | :---: | :---: | :---: | :---: |
+| [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/5731909" width="100px;"/><br /><sub><b>Fabián Horacio Veliz</b></sub>](https://github.com/fabianvelizok)<br />| [<img src="https://avatars1.githubusercontent.com/u/22397189" width="100px;"/><br /><sub><b>Gustavo Salgado (Globant)</b></sub>](https://github.com/gustavo-globant)<br />| [<img src="https://avatars2.githubusercontent.com/u/2752314" width="100px;"/><br /><sub><b>Nym</b></sub>](https://github.com/Pseudo-Nym)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> | [<img src="https://avatars0.githubusercontent.com/u/3028182?s=400&v=4" width="100px;"/><br /><sub><b>atulingale009</b></sub>](https://github.com/atulingale009)<br /> |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 
 <br/>
 
