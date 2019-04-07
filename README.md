@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/ArunMichaelDsouza/ng-youtube-embed/master/icon.png" width="250" height="auto" alt="ng-youtube-embed icon"/>
 
-# ng-youtube-embed [![npm version](https://badge.fury.io/js/ng-youtube-embed.svg)](https://badge.fury.io/js/ng-youtube-embed) [![NPM Downloads](https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square)](https://www.npmjs.com/package/ng-youtube-embed) [![Latest Stable Version](https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square)](http://bower.io/search/?q=ng-youtube-embed) [![](https://data.jsdelivr.com/v1/package/npm/ng-youtube-embed/badge)](https://www.jsdelivr.com/package/npm/ng-youtube-embed)
+# ng-youtube-embed [![npm version](https://badge.fury.io/js/ng-youtube-embed.svg)](https://badge.fury.io/js/ng-youtube-embed) [![NPM Downloads](https://img.shields.io/npm/dm/ng-youtube-embed.svg?style=flat-square)](https://www.npmjs.com/package/ng-youtube-embed) [![Latest Stable Version](https://img.shields.io/bower/v/ng-youtube-embed.svg?style=flat-square)](http://bower.io/search/?q=ng-youtube-embed) [![](https://data.jsdelivr.com/v1/package/npm/ng-youtube-embed/badge)](https://www.jsdelivr.com/package/npm/ng-youtube-embed) <span class="badge-patreon"><a href="https://www.patreon.com/arunmichaeldsouza" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-blue.svg" alt="Patreon donate button" /></a></span>
 
 AngularJS module to embed Youtube videos with support for Youtube player parameters and JavaScript API for iframe embeds.
 > Superlight (less than 5KB) and easy to use! Supports Youtube video URLs and IDs. No 3rd party JS dependencies. 
@@ -339,6 +339,14 @@ var playerID = ngYoutubeEmbedService.getVideoIdByUrl('https://www.youtube.com/wa
 
 | [<img src="https://avatars3.githubusercontent.com/u/4924614" width="100px;"/><br /><sub><b>Arun Michael Dsouza</b></sub>](https://github.com/ArunMichaelDsouza)<br />| [<img src="https://avatars3.githubusercontent.com/u/5731909" width="100px;"/><br /><sub><b>Fabián Horacio Veliz</b></sub>](https://github.com/fabianvelizok)<br />| [<img src="https://avatars1.githubusercontent.com/u/22397189" width="100px;"/><br /><sub><b>Gustavo Salgado (Globant)</b></sub>](https://github.com/gustavo-globant)<br />| [<img src="https://avatars2.githubusercontent.com/u/2752314" width="100px;"/><br /><sub><b>Nym</b></sub>](https://github.com/Pseudo-Nym)<br />| [<img src="https://avatars0.githubusercontent.com/u/15611832" width="100px;"/><br /><sub><b>Lukas Drgon</b></sub>](https://github.com/LukasDrgon)<br /> | [<img src="https://avatars0.githubusercontent.com/u/3028182?s=400&v=4" width="100px;"/><br /><sub><b>atulingale009</b></sub>](https://github.com/atulingale009)<br /> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
+
+<br/>
+
+## Support
+
+If you'd like to help support the development of the project, please consider backing me on Patreon -
+
+[<img src="https://arunmichaeldsouza.com/img/patreon.png" width="180px;"/>](https://www.patreon.com/bePatron?u=8841116)
 
 <br/>
 
