@@ -8,9 +8,9 @@ AngularJS module to embed Youtube videos with support for Youtube player paramet
 
 ### [Demo on CodePen](http://codepen.io/amdsouza92/pen/yNxyJV)
 
-<img src="https://github.com/ArunMichaelDsouza/ng-youtube-embed/raw/master/jsdelivr-logo.png" width="auto" height="auto" alt="jsdelivr logo"/>
+### Available on jsDelivr CDN (50M hits/year)
 
-50M hits/year on jsDelivr CDN.
+<img src="https://github.com/ArunMichaelDsouza/ng-youtube-embed/raw/master/jsdelivr-logo.png" width="250" height="auto" alt="jsdelivr logo"/>
 
 <img src="https://github.com/ArunMichaelDsouza/ng-youtube-embed/raw/master/jsdelivr-stats.png" width="100%" height="auto" alt="ng-youtube-embed jsdelivr stats"/>
 
